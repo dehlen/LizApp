@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Questions</key>
+	<array>
+		<dict>
+			<key>Answer</key>
+			<string>0</string>
+			<key>correct_ans_explanation</key>
+			<string>Shane Robert Watson (born 17 June 1981) is an Australian cricketer. He is a right-handed batsman and a right-handed fast medium bowler.</string>
+			<key>duration_in_seconds</key>
+			<string>20</string>
+			<key>negative_points</key>
+			<string>5</string>
+			<key>options</key>
+			<array>
+				<string>2002 against Africa</string>
+				<string>2001 against Australia</string>
+				<string>2002 against Newzeeland</string>
+				<string>2002 against Australia</string>
+			</array>
+			<key>picture_or_video_name</key>
+			<string>Australia2001_0.jpg</string>
+			<key>points</key>
+			<string>10</string>
+			<key>question</key>
+			<string>Hello, I am Shane watson. In which year did I Play my 1st international Cricket match</string>
+			<key>question_type</key>
+			<string>2</string>
+			<key>wrong_ans_explanation</key>
+			<string>Shane Robert Watson (born 17 June 1981) is an Australian cricketer. He is a right-handed batsman and a right-handed fast medium bowler.</string>
+		</dict>
+		<dict>
+			<key>Answer</key>
+			<string>0</string>
+			<key>correct_ans_explanation</key>
+			<string>Kapil Dev Ramlal Nikhan (born 6 January 1959), better known as Kapil Dev, is a former Indian cricketer. He captained the Indian cricket team which won the 1983 Cricket World Cup.</string>
+			<key>duration_in_seconds</key>
+			<string>20</string>
+			<key>negative_points</key>
+			<string>5</string>
+			<key>options</key>
+			<array>
+				<string>Kapil Dev</string>
+				<string>Sunil Gavaskar</string>
+				<string>Ravi Shsatri</string>
+				<string>Arjun Rampal</string>
+			</array>
+			<key>picture_or_video_name</key>
+			<string>kapil_dev.jpg</string>
+			<key>points</key>
+			<string>10</string>
+			<key>question</key>
+			<string>who am I? Hint: Cricket personality.</string>
+			<key>question_type</key>
+			<string>2</string>
+			<key>wrong_ans_explanation</key>
+			<string>Kapil Dev Ramlal Nikhan (born 6 January 1959), better known as Kapil Dev, is a former Indian cricketer. He captained the Indian cricket team which won the 1983 Cricket World Cup.</string>
+		</dict>
+		<dict>
+			<key>Answer</key>
+			<string>0</string>
+			<key>duration_in_seconds</key>
+			<string>20</string>
+			<key>negative_points</key>
+			<string>5</string>
+			<key>options</key>
+			<array>
+				<string>Polo</string>
+				<string>Football</string>
+				<string>Basketball</string>
+				<string>None</string>
+			</array>
+			<key>points</key>
+			<string>10</string>
+			<key>question</key>
+			<string>Which sport is played on the largest pitch?</string>
+			<key>question_type</key>
+			<string>1</string>
+		</dict>
+		<dict>
+			<key>Answer</key>
+			<string>0</string>
+			<key>duration_in_seconds</key>
+			<string>20</string>
+			<key>negative_points</key>
+			<string>5</string>
+			<key>options</key>
+			<array>
+				<string>Only the server can score</string>
+				<string>Both can score</string>
+				<string>No one scores</string>
+				<string>No connections</string>
+			</array>
+			<key>points</key>
+			<string>10</string>
+			<key>question</key>
+			<string>What is the connection between Volleyball, Squash and Badminton? Clue: This connection is not shared with tennis or table tennis.</string>
+			<key>question_type</key>
+			<string>1</string>
+		</dict>
+		<dict>
+			<key>Answer</key>
+			<string>0</string>
+			<key>duration_in_seconds</key>
+			<string>20</string>
+			<key>negative_points</key>
+			<string>5</string>
+			<key>options</key>
+			<array>
+				<string>Table Tennis</string>
+				<string>Polo</string>
+				<string>Basketball</string>
+				<string>None</string>
+			</array>
+			<key>points</key>
+			<string>10</string>
+			<key>question</key>
+			<string>Which sports playing area is 2.7 metres by 1.5 metres?</string>
+			<key>question_type</key>
+			<string>1</string>
+		</dict>
+		<dict>
+			<key>Answer</key>
+			<string>0</string>
+			<key>duration_in_seconds</key>
+			<string>20</string>
+			<key>negative_points</key>
+			<string>5</string>
+			<key>options</key>
+			<array>
+				<string>155</string>
+				<string>147</string>
+				<string>165</string>
+				<string>115</string>
+			</array>
+			<key>points</key>
+			<string>10</string>
+			<key>question</key>
+			<string>What is the highest possible break in snooker?</string>
+			<key>question_type</key>
+			<string>1</string>
+		</dict>
+		<dict>
+			<key>Answer</key>
+			<string>0</string>
+			<key>duration_in_seconds</key>
+			<string>20</string>
+			<key>negative_points</key>
+			<string>5</string>
+			<key>options</key>
+			<array>
+				<string>David Beckham</string>
+				<string>Zinedine Zidane</string>
+				<string>Luis Figo</string>
+				<string>Jhon</string>
+			</array>
+			<key>picture_or_video_name</key>
+			<string>david_bakham.jpg</string>
+			<key>points</key>
+			<string>10</string>
+			<key>question</key>
+			<string>Who is this hot man?</string>
+			<key>question_type</key>
+			<string>2</string>
+		</dict>
+		<dict>
+			<key>Answer</key>
+			<string>0</string>
+			<key>duration_in_seconds</key>
+			<string>20</string>
+			<key>negative_points</key>
+			<string>5</string>
+			<key>points</key>
+			<string>10</string>
+			<key>question</key>
+			<string>This is sample true/false question.</string>
+			<key>question_type</key>
+			<string>4</string>
+		</dict>
+	</array>
+</dict>
+</plist>

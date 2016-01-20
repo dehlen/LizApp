@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Questions</key>
+	<array>
+		<dict>
+			<key>Answer</key>
+			<string>0</string>
+			<key>duration_in_seconds</key>
+			<string>20</string>
+			<key>negative_points</key>
+			<string>5</string>
+			<key>points</key>
+			<string>10</string>
+			<key>question</key>
+			<string>This is sample true/false question.</string>
+			<key>question_type</key>
+			<string>4</string>
+		</dict>
+		<dict>
+			<key>Answer</key>
+			<string>0</string>
+			<key>duration_in_seconds</key>
+			<string>15</string>
+			<key>negative_points</key>
+			<string>2</string>
+			<key>options</key>
+			<array>
+				<string>BMW Brand</string>
+				<string>Intelligent Car</string>
+				<string>Nisan</string>
+				<string>Maruti</string>
+			</array>
+			<key>points</key>
+			<string>15</string>
+			<key>question</key>
+			<string>Which of below is german car company?</string>
+			<key>question_type</key>
+			<string>1</string>
+		</dict>
+		<dict>
+			<key>Answer</key>
+			<string>0</string>
+			<key>duration_in_seconds</key>
+			<string>15</string>
+			<key>negative_points</key>
+			<string>2</string>
+			<key>options</key>
+			<array>
+				<string>Chevrolet</string>
+				<string>Volksvagen</string>
+				<string>Mercedes Benz</string>
+				<string>Aston Martin</string>
+			</array>
+			<key>picture_or_video_name</key>
+			<string>chevrolet-logo2.png</string>
+			<key>points</key>
+			<string>15</string>
+			<key>question</key>
+			<string>What car brand is this?</string>
+			<key>question_type</key>
+			<string>2</string>
+		</dict>
+		<dict>
+			<key>Answer</key>
+			<string>0</string>
+			<key>duration_in_seconds</key>
+			<string>15</string>
+			<key>negative_points</key>
+			<string>2</string>
+			<key>options</key>
+			<array>
+				<string>Lotus</string>
+				<string>Rose</string>
+				<string>Mercedes Benz</string>
+				<string>Bently</string>
+			</array>
+			<key>picture_or_video_name</key>
+			<string>lotus-logo2.png</string>
+			<key>points</key>
+			<string>15</string>
+			<key>question</key>
+			<string>What car brand is this?</string>
+			<key>question_type</key>
+			<string>2</string>
+		</dict>
+		<dict>
+			<key>Answer</key>
+			<string>0</string>
+			<key>correct_ans_explanation</key>
+			<string>This is correct answer explanation. You can have your own correct/wrong explanation text for every question. If this text is not added, app will automatically take you to next question without showing this popup.</string>
+			<key>duration_in_seconds</key>
+			<string>20</string>
+			<key>negative_points</key>
+			<string>2</string>
+			<key>options</key>
+			<array>
+				<string>Correct answer</string>
+				<string>Wrong answer</string>
+				<string>Wrong answer</string>
+				<string>Wrong answer</string>
+			</array>
+			<key>picture_or_video_name</key>
+			<string>sample_video.mp4</string>
+			<key>points</key>
+			<string>15</string>
+			<key>question</key>
+			<string>Sample video question.</string>
+			<key>question_type</key>
+			<string>3</string>
+			<key>wrong_ans_explanation</key>
+			<string>This is wrong answer explanation. You can have your own correct/wrong explanation text for every question. If this text is not added, app will automatically take you to next question without showing this popup.</string>
+		</dict>
+	</array>
+</dict>
+</plist>

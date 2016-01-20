@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Questions</key>
+	<array>
+		<dict>
+			<key>Answer</key>
+			<string>0</string>
+			<key>correct_ans_explanation</key>
+			<string>The Dalai Lama is a lama of the Gelug or "Yellow Hat" school of Tibetan Buddhism, founded by Tsongkhapa (1357–1419). The 14th and current Dalai Lama is Tenzin Gyatso, recognized since 1950.</string>
+			<key>duration_in_seconds</key>
+			<string>20</string>
+			<key>negative_points</key>
+			<string>5</string>
+			<key>options</key>
+			<array>
+				<string>14th Dalai lama</string>
+				<string>Bhodidharma</string>
+				<string>Chagdud Tulku Rinpoche</string>
+				<string>Angarika Govinda</string>
+			</array>
+			<key>picture_or_video_name</key>
+			<string>Q16Dalai.jpg</string>
+			<key>points</key>
+			<string>10</string>
+			<key>question</key>
+			<string>Identify this famous personality.</string>
+			<key>question_type</key>
+			<string>2</string>
+			<key>wrong_ans_explanation</key>
+			<string>The Dalai Lama is a lama of the Gelug or "Yellow Hat" school of Tibetan Buddhism, founded by Tsongkhapa (1357–1419). The 14th and current Dalai Lama is Tenzin Gyatso, recognized since 1950.</string>
+		</dict>
+		<dict>
+			<key>Answer</key>
+			<string>0</string>
+			<key>correct_ans_explanation</key>
+			<string>Elizabeth II (Elizabeth Alexandra Mary; born 21 April 1926)[ is the Queen of 16 of the 53 member states in the Commonwealth of Nations. She is also Head of the Commonwealth and Supreme Governor of the Church of England.</string>
+			<key>duration_in_seconds</key>
+			<string>20</string>
+			<key>negative_points</key>
+			<string>5</string>
+			<key>options</key>
+			<array>
+				<string>Queen Elizabeth</string>
+				<string>Princes Diana</string>
+				<string>Duchess Catherine</string>
+				<string>Monalisa</string>
+			</array>
+			<key>picture_or_video_name</key>
+			<string>Q9Elizabethe.jpg</string>
+			<key>points</key>
+			<string>10</string>
+			<key>question</key>
+			<string>Identify this famous personality.</string>
+			<key>question_type</key>
+			<string>2</string>
+			<key>wrong_ans_explanation</key>
+			<string>Elizabeth II (Elizabeth Alexandra Mary; born 21 April 1926) is the Queen of 16 of the 53 member states in the Commonwealth of Nations. She is also Head of the Commonwealth and Supreme Governor of the Church of England.</string>
+		</dict>
+		<dict>
+			<key>Answer</key>
+			<string>0</string>
+			<key>duration_in_seconds</key>
+			<string>20</string>
+			<key>negative_points</key>
+			<string>5</string>
+			<key>options</key>
+			<array>
+				<string>Pope John Paul</string>
+				<string>Pope st. pius X</string>
+				<string>Prince Philip</string>
+				<string>Pope Benedict</string>
+			</array>
+			<key>picture_or_video_name</key>
+			<string>Q15Pop.jpg</string>
+			<key>points</key>
+			<string>10</string>
+			<key>question</key>
+			<string>Identify this famous personality.</string>
+			<key>question_type</key>
+			<string>2</string>
+		</dict>
+		<dict>
+			<key>Answer</key>
+			<string>0</string>
+			<key>duration_in_seconds</key>
+			<string>20</string>
+			<key>negative_points</key>
+			<string>5</string>
+			<key>options</key>
+			<array>
+				<string>Walt Disney</string>
+				<string>Peter Sellers</string>
+				<string>Winston Churchill</string>
+				<string>Bill Gates</string>
+			</array>
+			<key>picture_or_video_name</key>
+			<string>Q18WaltDisney.jpg</string>
+			<key>points</key>
+			<string>10</string>
+			<key>question</key>
+			<string>Identify this famous personality.</string>
+			<key>question_type</key>
+			<string>2</string>
+		</dict>
+		<dict>
+			<key>Answer</key>
+			<string>0</string>
+			<key>duration_in_seconds</key>
+			<string>20</string>
+			<key>negative_points</key>
+			<string>5</string>
+			<key>options</key>
+			<array>
+				<string>Steve Jobs</string>
+				<string>Steve Johnson</string>
+				<string>Elvis Presley</string>
+				<string>Bill Gates</string>
+			</array>
+			<key>picture_or_video_name</key>
+			<string>Q7Steve.jpg</string>
+			<key>points</key>
+			<string>10</string>
+			<key>question</key>
+			<string>Identify this famous personality.</string>
+			<key>question_type</key>
+			<string>2</string>
+		</dict>
+		<dict>
+			<key>Answer</key>
+			<string>0</string>
+			<key>duration_in_seconds</key>
+			<string>20</string>
+			<key>negative_points</key>
+			<string>5</string>
+			<key>options</key>
+			<array>
+				<string>Mark Zukerburg</string>
+				<string>Robert Redford</string>
+				<string>Elvis Presley</string>
+				<string>Bill Gates</string>
+			</array>
+			<key>picture_or_video_name</key>
+			<string>Q3Mark.jpg</string>
+			<key>points</key>
+			<string>10</string>
+			<key>question</key>
+			<string>Identify this famous personality.</string>
+			<key>question_type</key>
+			<string>2</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HAMainViewController">
+            <connections>
+                <outlet property="_aboutButton" destination="6qT-Mx-rov" id="5E2-nk-EGa"/>
+                <outlet property="_challengeButton" destination="P4m-tI-Yfb" id="mC9-Bj-Onl"/>
+                <outlet property="_getMoreCategoriesButton" destination="3Nv-fM-H6b" id="Pmn-OY-ZUj"/>
+                <outlet property="_playButton" destination="4" id="74J-AH-m3L"/>
+                <outlet property="_settingsButton" destination="Vn1-Fi-dJ6" id="Bhi-gf-Hj1"/>
+                <outlet property="_titleView" destination="j7F-qc-ITY" id="zgf-wv-6dN"/>
+                <outlet property="_worldScoreButton" destination="1Yu-Vl-RX6" id="VwW-08-K2Y"/>
+                <outlet property="view" destination="2" id="64"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="2">
+            <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="quizBg_ipad.png" id="54">
+                    <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                </imageView>
+                <view contentMode="scaleToFill" id="evE-ks-wZc">
+                    <rect key="frame" x="0.0" y="231" width="768" height="678"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4">
+                            <rect key="frame" x="91" y="0.0" width="585" height="148"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="42"/>
+                            <inset key="titleEdgeInsets" minX="80" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="40" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Play quiz" image="play_button_icon_ipad.png" backgroundImage="button1_ipad.png">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="playQuiz:" destination="-1" eventType="touchUpInside" id="51"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="3Nv-fM-H6b">
+                            <rect key="frame" x="91" y="294" width="585" height="148"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="41"/>
+                            <inset key="titleEdgeInsets" minX="80" minY="0.0" maxX="5" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="40" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="More categories" image="getmore_icon_ipad.png" backgroundImage="button3_ipad.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="getMoreCategories:" destination="-1" eventType="touchUpInside" id="6c6-tH-lmz"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="1Yu-Vl-RX6">
+                            <rect key="frame" x="91" y="443" width="585" height="148"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="42"/>
+                            <inset key="titleEdgeInsets" minX="80" minY="0.0" maxX="-54" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="40" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="World score" image="world_score_button_icon_ipad.png" backgroundImage="button4_ipad.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="worldScoreAction:" destination="-1" eventType="touchUpInside" id="qEP-5C-mhF"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="P4m-tI-Yfb">
+                            <rect key="frame" x="91" y="146" width="585" height="148"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="41"/>
+                            <inset key="titleEdgeInsets" minX="80" minY="0.0" maxX="5" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="40" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" title="Multiplayer 1 to 1" image="challenge_button_icon_ipad.png" backgroundImage="button2_ipad.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="multiplayerGameMode:" destination="-1" eventType="touchUpInside" id="qlM-hK-fyQ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <point key="canvasLocation" x="417" y="57"/>
+        </view>
+        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j7F-qc-ITY" customClass="HACustomLabel">
+            <rect key="frame" x="0.0" y="0.0" width="381" height="38"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="34"/>
+            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <nil key="highlightedColor"/>
+            <point key="canvasLocation" x="289.5" y="78"/>
+        </label>
+        <button opaque="NO" contentMode="center" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" id="6qT-Mx-rov" userLabel="about button">
+            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="24"/>
+            <inset key="titleEdgeInsets" minX="31" minY="0.0" maxX="0.0" maxY="0.0"/>
+            <state key="normal" backgroundImage="info_icon.png">
+                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+            </state>
+            <connections>
+                <action selector="aboutAction:" destination="-1" eventType="touchUpInside" id="GIj-ma-wa5"/>
+            </connections>
+            <point key="canvasLocation" x="19" y="67"/>
+        </button>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Vn1-Fi-dJ6" userLabel="settings button">
+            <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <state key="normal" backgroundImage="settings_icon.png">
+                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+            </state>
+            <connections>
+                <action selector="settingsAction:" destination="-1" eventType="touchUpInside" id="P4g-ge-0qP"/>
+            </connections>
+            <point key="canvasLocation" x="872" y="442"/>
+        </button>
+    </objects>
+    <resources>
+        <image name="button1_ipad.png" width="585" height="148"/>
+        <image name="button2_ipad.png" width="585" height="148"/>
+        <image name="button3_ipad.png" width="585" height="148"/>
+        <image name="button4_ipad.png" width="585" height="148"/>
+        <image name="challenge_button_icon_ipad.png" width="75" height="75"/>
+        <image name="getmore_icon_ipad.png" width="75" height="75"/>
+        <image name="info_icon.png" width="40" height="40"/>
+        <image name="play_button_icon_ipad.png" width="75" height="75"/>
+        <image name="quizBg_ipad.png" width="768" height="1024"/>
+        <image name="settings_icon.png" width="40" height="40"/>
+        <image name="world_score_button_icon_ipad.png" width="75" height="75"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Categories</key>
+	<array>
+		<dict>
+			<key>category_color</key>
+			<string>#FF9933</string>
+			<key>category_description</key>
+			<string>Are you a real sport person then beat it…!!!</string>
+			<key>category_id</key>
+			<string>2</string>
+			<key>category_image_path</key>
+			<string>sports_btns_icon.png</string>
+			<key>category_name</key>
+			<string>Sports</string>
+			<key>category_questions_max_limit</key>
+			<string>4</string>
+			<key>leaderboard_id</key>
+			<string>sports_leaderboard_id</string>
+			<key>timer_required</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>category_color</key>
+			<string>#FF5050</string>
+			<key>category_description</key>
+			<string>Test your knowledge about cars and logos</string>
+			<key>category_id</key>
+			<string>1</string>
+			<key>category_image_path</key>
+			<string>entertainment.png</string>
+			<key>category_name</key>
+			<string>Cars</string>
+			<key>category_questions_max_limit</key>
+			<string>5</string>
+			<key>leaderboard_id</key>
+			<string>carsquiz_leaderboard_id</string>
+			<key>timer_required</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>category_color</key>
+			<string>#6666FF</string>
+			<key>category_description</key>
+			<string>How many of you know about these famous people?</string>
+			<key>category_id</key>
+			<string>3</string>
+			<key>category_image_path</key>
+			<string>famous_ppl.png</string>
+			<key>category_name</key>
+			<string>People</string>
+			<key>category_questions_max_limit</key>
+			<string>4</string>
+			<key>leaderboard_id</key>
+			<string>peoplequiz_leaderboard_id</string>
+			<key>productIdentifier</key>
+			<string>com.heavenapps.quizapp.famouspeople</string>
+			<key>timer_required</key>
+			<true/>
+		</dict>
+	</array>
+</dict>
+</plist>

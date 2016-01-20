@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Questions</key>
+	<array>
+		<dict>
+			<key>Answer</key>
+			<string>0</string>
+			<key>correct_ans_explanation</key>
+			<string>Correct explanation</string>
+			<key>duration_in_seconds</key>
+			<string>30</string>
+			<key>negative_points</key>
+			<string>5</string>
+			<key>options</key>
+			<array>
+				<string>Correct</string>
+				<string>Option</string>
+				<string>Option</string>
+				<string>Option</string>
+			</array>
+			<key>points</key>
+			<string>20</string>
+			<key>question</key>
+			<string>This is first question</string>
+			<key>question_type</key>
+			<string>1</string>
+			<key>wrong_ans_explanation</key>
+			<string>Correct explanation</string>
+		</dict>
+		<dict>
+			<key>Answer</key>
+			<string>0</string>
+			<key>correct_ans_explanation</key>
+			<string>Correct explanation</string>
+			<key>duration_in_seconds</key>
+			<string>30</string>
+			<key>negative_points</key>
+			<string>5</string>
+			<key>options</key>
+			<array>
+				<string>Correct</string>
+				<string>Option</string>
+				<string>Option</string>
+				<string>Option</string>
+			</array>
+			<key>picture_or_video_name</key>
+			<string>Default-667h@2x.png</string>
+			<key>points</key>
+			<string>20</string>
+			<key>question</key>
+			<string>Second question</string>
+			<key>question_type</key>
+			<string>2</string>
+			<key>wrong_ans_explanation</key>
+			<string>Correct explanation</string>
+		</dict>
+		<dict>
+			<key>Answer</key>
+			<string>1</string>
+			<key>duration_in_seconds</key>
+			<string>30</string>
+			<key>negative_points</key>
+			<string>5</string>
+			<key>points</key>
+			<string>20</string>
+			<key>question</key>
+			<string>Third question?</string>
+			<key>question_type</key>
+			<string>4</string>
+		</dict>
+	</array>
+</dict>
+</plist>

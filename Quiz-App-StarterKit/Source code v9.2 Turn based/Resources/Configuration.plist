@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Interface Settings</key>
+	<dict>
+		<key>App Text Color</key>
+		<string>#FFFFFF</string>
+		<key>Menu Screen Title</key>
+		<string>Quiz</string>
+		<key>Categories Screen Title</key>
+		<string>Categories</string>
+		<key>About Screen Title</key>
+		<string>About</string>
+		<key>About Text Or URL</key>
+		<string>http://www.facebook.com/heavenapps</string>
+	</dict>
+	<key>Features Settings</key>
+	<dict>
+		<key>Enable Ads Support</key>
+		<false/>
+		<key>Enable In App Purchase</key>
+		<true/>
+		<key>Remove Ads Product Identifier</key>
+		<string>com.heavenapps.quizapp.removeads</string>
+		<key>Enable Game Center</key>
+		<true/>
+		<key>Data Input Format</key>
+		<string>plist</string>
+		<key>Enable Shuffle Questions</key>
+		<true/>
+		<key>Enable Shuffle Answers</key>
+		<true/>
+		<key>Full Points Before Seconds</key>
+		<integer>5</integer>
+		<key>Highlight Correct Answer If answered Wrong</key>
+		<true/>
+		<key>Enable Timer Based Score</key>
+		<true/>
+		<key>Enable Parental Gate</key>
+		<true/>
+		<key>ApplicationiTunesLink</key>
+		<string>http://www.facebook.com/heavenapps</string>
+		<key>Enable Multiplayer Support</key>
+		<true/>
+		<key>Total Wins Leaderboard ID</key>
+		<string>com.heavenapps.quizapp.totalwins</string>
+		<key>Achievements For Wins</key>
+		<array>
+			<dict>
+				<key>Achievement ID</key>
+				<string>com.heavenapps.quizapp.Lieutenant</string>
+				<key>Wins</key>
+				<integer>10</integer>
+			</dict>
+			<dict>
+				<key>Achievement ID</key>
+				<string>com.heavenapps.quizapp.Captain</string>
+				<key>Wins</key>
+				<integer>20</integer>
+			</dict>
+			<dict>
+				<key>Achievement ID</key>
+				<string>com.heavenapps.quizapp.Major</string>
+				<key>Wins</key>
+				<integer>30</integer>
+			</dict>
+			<dict>
+				<key>Achievement ID</key>
+				<string>com.heavenapps.quizapp.ltColonel </string>
+				<key>Wins</key>
+				<integer>40</integer>
+			</dict>
+		</array>
+	</dict>
+</dict>
+</plist>
