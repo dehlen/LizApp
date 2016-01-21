@@ -4,7 +4,6 @@ import AudioToolbox
 class SoundMachine {
 
 	enum Sound:String {
-		case Tap = "tap"
 		case CorrectAnswer = "correct_answer"
 		case WrongAnswer = "wrong_anwer"
 	}

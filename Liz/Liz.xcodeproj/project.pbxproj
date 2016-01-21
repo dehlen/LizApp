@@ -30,6 +30,9 @@
 		4049A3F81C4FF9640072DDF8 /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4049A3EC1C4FF9640072DDF8 /* UIView+Animation.swift */; };
 		4049A3F91C4FF9640072DDF8 /* UIView+Screenshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4049A3ED1C4FF9640072DDF8 /* UIView+Screenshot.swift */; };
 		40AAE4EA1C4FFCF100C582DA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 40AAE4E81C4FFCF100C582DA /* Localizable.strings */; };
+		40C250141C514F2D00D6F476 /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C250131C514F2D00D6F476 /* AboutViewController.swift */; };
+		40C250171C51503400D6F476 /* GameCenterManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C250151C51503400D6F476 /* GameCenterManager.swift */; };
+		40C250181C51503400D6F476 /* GameCenterManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40C250161C51503400D6F476 /* GameCenterManagerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +75,9 @@
 		4049A3FB1C4FFA520072DDF8 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		40AAE4E91C4FFCF100C582DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		40AAE4EB1C4FFCF800C582DA /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		40C250131C514F2D00D6F476 /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		40C250151C51503400D6F476 /* GameCenterManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameCenterManager.swift; path = Liz/GameCenterManager.swift; sourceTree = "<group>"; };
+		40C250161C51503400D6F476 /* GameCenterManagerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameCenterManagerDelegate.swift; path = Liz/GameCenterManagerDelegate.swift; sourceTree = "<group>"; };
 		7BA5D86E651A86DE0FFC5058 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		88894DBEDDE7A54EA5905BC3 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		BA0FF023065D1EF778064008 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -139,9 +145,10 @@
 				400B82051C4EE13A00ACCAEE /* AppDelegate.swift */,
 				406A44831C4FFC5400D7C78B /* Commons */,
 				406A44821C4FFC3F00D7C78B /* Config */,
+				406A44801C4FFC0100D7C78B /* Controller */,
+				40C250191C515CD200D6F476 /* GameCenter */,
 				406A44811C4FFC3000D7C78B /* Model */,
 				406A447E1C4FFBEE00D7C78B /* UI */,
-				406A44801C4FFC0100D7C78B /* Controller */,
 				406A447D1C4FFBD100D7C78B /* Resources */,
 			);
 			path = Liz;
@@ -185,6 +192,7 @@
 		406A44801C4FFC0100D7C78B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				40C250131C514F2D00D6F476 /* AboutViewController.swift */,
 				400B82071C4EE13A00ACCAEE /* ViewController.swift */,
 			);
 			name = Controller;
@@ -217,6 +225,16 @@
 				4049A3EB1C4FF9640072DDF8 /* String+Localization.swift */,
 			);
 			name = Commons;
+			sourceTree = "<group>";
+		};
+		40C250191C515CD200D6F476 /* GameCenter */ = {
+			isa = PBXGroup;
+			children = (
+				40C250151C51503400D6F476 /* GameCenterManager.swift */,
+				40C250161C51503400D6F476 /* GameCenterManagerDelegate.swift */,
+			);
+			name = GameCenter;
+			path = ..;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -385,7 +403,10 @@
 				4049A3EF1C4FF9640072DDF8 /* AppConstants.swift in Sources */,
 				4049A3F71C4FF9640072DDF8 /* String+Localization.swift in Sources */,
 				4049A3F61C4FF9640072DDF8 /* SoundMachine.swift in Sources */,
+				40C250141C514F2D00D6F476 /* AboutViewController.swift in Sources */,
 				400B82261C4EE15E00ACCAEE /* UILabel+VerticalAlign.swift in Sources */,
+				40C250171C51503400D6F476 /* GameCenterManager.swift in Sources */,
+				40C250181C51503400D6F476 /* GameCenterManagerDelegate.swift in Sources */,
 				4049A3EE1C4FF9640072DDF8 /* Achievement.swift in Sources */,
 				4049A3F01C4FF9640072DDF8 /* CategoryTableViewCell.swift in Sources */,
 				4049A3F51C4FF9640072DDF8 /* Reachability.swift in Sources */,
