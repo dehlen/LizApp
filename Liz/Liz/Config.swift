@@ -4,7 +4,7 @@ struct Config {
 	
 	static let appName = "Liz"
 	static let applicationiTunesLink = "http://"
-	
+	static let aboutScreenTextOrURL = ""
 	struct ui {
     	static let appTextColor = UIColor.whiteColor()
 		static let isHighlightCorrectAnswerEnabled = true
