@@ -6,7 +6,7 @@ extension Int {
             block()
         }
     }
-	
+
     func times(block: (Int) -> ()) -> Int {
         for i in 0..<self {
             block(i)

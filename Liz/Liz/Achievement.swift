@@ -1,9 +1,9 @@
 struct Achievement {
-	var id:String
-	var wins:Int
-	
-	init(id:String, wins:Int) {
-		self.id = id
+	var achievmentId: String
+	var wins: Int
+
+	init(achievmentId: String, wins: Int) {
+		self.achievmentId = achievmentId
 		self.wins = wins
 	}
 }
