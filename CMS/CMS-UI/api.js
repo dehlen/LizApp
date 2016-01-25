@@ -1,8 +1,25 @@
-var addCategory = function(category, handler){	
+var loadAllCategories = function(handler) {
+	$.ajax({
+	    url : config.baseURL+'api/categories',
+	    type : 'GET',
+	    dataType:'json',
+        contentType: "application/json",
+		cache : false,
+	    success : function(data) {              
+	        handler(data);
+	    },
+	    error : function(request,error)
+	    {
+	        handler(null, error);
+	    }
+	});
+};
+
+var addCategory = function(category, handler) {
 	$.ajax({
 	    url : config.baseURL+'api/add/category',
 	    type : 'POST',
-	    data : category,
+	    data : JSON.stringify(category),
 	    dataType:'json',
         contentType: "application/json",
 		cache : false,
@@ -17,19 +34,21 @@ var addCategory = function(category, handler){
 };
 
 var removeCategory = function(categoryId, handler) {
+	var catData = {"categoryId": categoryId};
+	console.log(catData);
 	$.ajax({
 	    url : config.baseURL+'api/delete/category',
-	    type : 'POST',
-	    data : { "categoryId": categoryId },
+	    type : 'DELETE',
+	    data : JSON.stringify(catData),
 	    dataType:'json',
         contentType: "application/json",
 		cache : false,
 	    success : function(data) {              
-	        handler();
+	        handler(data);
 	    },
 	    error : function(request,error)
 	    {
-	        handler(error);
+	        handler(null, error);
 	    }
 	});
 };

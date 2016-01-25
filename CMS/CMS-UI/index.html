@@ -2,14 +2,12 @@
 	<head>
 		<!-- Styles -->
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-		<link href="./libs/fileupload/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css"/>
 		<link rel="stylesheet" href="./libs/colorpicker/css/bootstrap-colorpicker.min.css">
 		<link rel="stylesheet" href="./assets/css/style.css">
 		
 		<!-- Scripts -->
 		<script language="javascript" type="text/javascript" src="config.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
-		<script language="javascript" type="text/javascript" src="./libs/fileupload/js/fileinput.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<script language="javascript" type="text/javascript" src="./libs/colorpicker/js/bootstrap-colorpicker.min.js"></script>
 		<script language="javascript" type="text/javascript" src="api.js"></script>
@@ -73,7 +71,11 @@
 	                    </div>
 	                    <div class="form-group">
 						  <label class="control-label">Select Icon</label>
-						  <input id="iconSelect" type="file" accept="image/*" class="file-loading" data-show-preview="false">
+						  <select id="iconSelect">
+						      <option>car</option>
+						      <option>people</option>
+						      <option>sports</option>
+						  </select>
 	                    </div>
 	                    <div class="form-group colorpicker">
 	                      <label for="themeColorPicker">Theme Color</label>
@@ -167,30 +169,6 @@
 					        </tr>
 					    </thead>
 					    <tbody class="searchable">
-					        <tr>
-					            <td>34</td>
-					            <td>Theorieseminar Informatik</td>
-					            <td>18.01.2016 10:40:00</td>
-					            <td>Fragen zur Theorie der Informatik. Kurs: TINF13B2, Prof. Dr. Heinrich Braun</td>
-					            <td class="cell-color-success"></td>
-					            <td align="center">
-									<img src="./assets/images/brand.png" alt="" height="20" width="20"/>
-								</td>
-					            <td>#FF03FF</td>
-					            <td>50</td>
-					            <td>compbau.leaderboard.id</td>
-					            <td>com.david-ehlen.quizapp</td>
-					            <td class="cell-color-fail"></td>
-					            <td>
-									<a href="#">Edit</a>
-								</td>
-					            <td>
-									<a href="#" id="removeCategory">Delete</a>
-					            </td>
-					            <td>
-					            	<a href="#" id="showQuestions">Questions</a>
-					            </td>
-					        </tr>
 					    </tbody>
 					</table>
 				</div>

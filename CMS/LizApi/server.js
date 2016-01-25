@@ -2,13 +2,13 @@ var express    = require('express');
 var app        = express();
 var bodyParser = require('body-parser');
 var mongoose   = require('mongoose');
-var filesystem = require('./app/filesystem');
 var Category       = require('./app/models/category');
 
 mongoose.connect('mongodb://localhost/liz');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(express.static(__dirname + '/public'));
 
 var port = process.env.PORT || 8080;
 var router = express.Router();
@@ -25,34 +25,24 @@ router.get('/', function(req, res) {
     res.json({ message: 'Liz API v1.0' });   
 });
 
-/* Category Routes */
-router.route('/upload')
-.post(function(req, res) {
-	var iconPath = storeCategoryIcon(req.body.file_data, req.body.fileInfo.name)
-	
-	Category.findById(req.body.fileInfo.name, function(err, category) {
-		if (!category) {
-			res.status(404).send("Could not find a category for this icon.");
-		} else {
-			category.iconPath = iconPath;
-			category.save(function(err) {
-				if (err) {
-					res.status(500).send("Could not save the icon for this category.");
-				} else {
-					res.status(200).send("Uploaded successfully.");
-		  	  	}
-	    	});
+/* == Category Routes == */
+router.route('/categories').get(function(req, res) {
+	Category.find({}, function(err, categories) {
+		if (err) {
+			return res.status(500).send('Could not retrieve categories');
 		}
-	});
+		return res.json(categories);
+	    });
 });
-
 router.route('/add/category')
 .post(function(req, res) {
+	console.log(req.body);
 	var category = new Category({
 			name: req.body.name,
 			createdAt: req.body.createdAt,
 			description: req.body.description,
 			timeBased: req.body.timeBased,
+			iconName: req.body.iconName,
 			themeColor: req.body.themeColor,
 			questionLimit: req.body.questionLimit,
 			leaderboardId: req.body.leaderboardId,
@@ -69,12 +59,12 @@ router.route('/add/category')
 });
 
 router.route('/delete/category')
-.post(function(req, res) {
+.delete(function(req, res) {
 	Category.remove({ _id: req.body.categoryId }, function(err) {
 	    if (!err) {
-			res.status(200).send("Category deleted.");
+			res.status(200).json({"msg": "Category deleted."});
 		} else {
-			res.status(500).send("Could not delete this category.");
+			res.status(500).json({"msg": "Could not delete this category."});
 	    }
 	});
 });

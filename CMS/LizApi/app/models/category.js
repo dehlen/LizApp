@@ -11,7 +11,7 @@ var CategorySchema   = new Schema({
 	leaderboardId:String,
 	productIdentifier:String,
 	online:Boolean,
-	iconPath:String
+	iconName:String
 });
 
 module.exports = mongoose.model('Category', CategorySchema);

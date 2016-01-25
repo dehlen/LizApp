@@ -1,3 +1,3 @@
 var config = {
-	baseURL: 'http://localhost/'
+	baseURL: 'http://localhost:8080/'
 };
