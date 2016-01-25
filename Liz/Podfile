@@ -3,3 +3,4 @@ platform :ios, '8.0'
 use_frameworks!
 
 pod 'XCGLogger', '~> 3.2'
+pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
