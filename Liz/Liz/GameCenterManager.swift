@@ -5,7 +5,7 @@ class GameCenterManager {
 
     var delegate: GameCenterManagerDelegate?
 
-	func isGameCenterAvailable() -> Bool {
+	class func isGameCenterAvailable() -> Bool {
 		let requiredSystemVersion = "4.1"
 		let currentSystemVersion = UIDevice.currentDevice().systemVersion
 		let osVersionSupported = currentSystemVersion.compare(requiredSystemVersion, options:[.NumericSearch])

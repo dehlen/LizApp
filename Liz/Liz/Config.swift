@@ -1,5 +1,5 @@
 import UIKit
-
+//TODO: Persist settings in db
 struct Config {
 
 	static let appName = "Liz"
@@ -14,9 +14,8 @@ struct Config {
 	struct Features {
 		static let isGameCenterSupported = true
 		static let isInAppPurchaseSupported = true
-		static let isParentalGateEnabled = true
 		static let isMultiplayerSupportEnabled = true
-		static let isSoundEnabled = true
+		static var isSoundEnabled = true
 	}
 
 	struct Game {
@@ -24,7 +23,7 @@ struct Config {
 		static let isShuffleQuestionsEnabled = true
 		static let isTimerBasedScoreEnabled = true
 		static let fullPointsBeforeSeconds = 5
-		static let showsExplanations = true
+		static var showsExplanations = true
 	}
 
 	struct Achievements {
