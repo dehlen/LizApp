@@ -2,8 +2,6 @@ var loadAllCategories = function(handler) {
 	$.ajax({
 	    url : config.baseURL+'api/categories',
 	    type : 'GET',
-	    dataType:'json',
-        contentType: "application/json",
 		cache : false,
 	    success : function(data) {              
 	        handler(data);
@@ -33,13 +31,11 @@ var addCategory = function(category, handler) {
 	});
 };
 
-var removeCategory = function(categoryId, handler) {
-	var catData = {"categoryId": categoryId};
-	console.log(catData);
+var removeCategory = function(id, handler) {
 	$.ajax({
 	    url : config.baseURL+'api/delete/category',
 	    type : 'DELETE',
-	    data : JSON.stringify(catData),
+	    data : JSON.stringify(id),
 	    dataType:'json',
         contentType: "application/json",
 		cache : false,
@@ -53,20 +49,21 @@ var removeCategory = function(categoryId, handler) {
 	});
 };
 
-var editCategory = function(category) {	
+var editCategory = function(category, handler) {
+	var json = {"category": category};	
 	$.ajax({
 	    url : config.baseURL+'api/update/category',
 	    type : 'POST',
-	    data : category,
+	    data : JSON.stringify(json),
 	    dataType:'json',
         contentType: "application/json",
 		cache : false,
 	    success : function(data) {              
-	        handler();
+	        handler(data);
 	    },
 	    error : function(request,error)
 	    {
-	        handler(error);
+	        handler(null, error);
 	    }
 	});
 };

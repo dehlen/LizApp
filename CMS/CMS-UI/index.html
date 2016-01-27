@@ -72,9 +72,9 @@
 	                    <div class="form-group">
 						  <label class="control-label">Select Icon</label>
 						  <select id="iconSelect">
-						      <option>car</option>
-						      <option>people</option>
-						      <option>sports</option>
+						      <option value="car" selected>car</option>
+						      <option value="people">people</option>
+						      <option value="sports">sports</option>
 						  </select>
 	                    </div>
 	                    <div class="form-group colorpicker">
@@ -86,7 +86,7 @@
 	                    </div>
 	                    <div class="form-group">
 	                      <label for="questionLimitLabel">Question Limit</label>
-							<input id="questionLimitLabel" type="number" min="2" max="50">
+							<input id="questionLimitLabel" type="number" min="2" max="50" value=10>
 	                    </div>
 	                    <div class="form-group">
 	                      <label for="leaderboardIdLabel">Leaderboard Id</label>
@@ -112,6 +112,97 @@
 	                              Close
 	                  </button>
 	                  <button type="button" class="btn btn-primary" id="addCategory">
+	                      Save changes
+	                  </button>
+	              </div>
+	          </div>
+		  </div>
+	  </div>
+	  
+	  <div class="modal fade" id="editCategoryDialog" tabindex="-1" role="dialog" aria-labelledby="Edit Category" aria-hidden="true">
+		  <div class="modal-dialog">
+	          <div class="modal-content">
+	              <div class="modal-header">
+	                  <button type="button" class="close" 
+	                     data-dismiss="modal">
+	                         <span aria-hidden="true">&times;</span>
+	                         <span class="sr-only">Close</span>
+	                  </button>
+	                  <h4 class="modal-title" id="myModalLabel2">
+	                      Edit Category
+	                  </h4>
+	              </div>
+            
+	              <div class="modal-body">
+	                  <form role="form">
+  	                    <div class="form-group">
+  	                      <label for="categoryIdLabel2">Category ID</label>
+  	                        <input type="text" class="form-control"
+  	                        id="categoryIdLabel2"/>
+  	                    </div>
+	                    <div class="form-group">
+	                      <label for="categoryNameLabel2">Category Name</label>
+	                        <input type="text" class="form-control"
+	                        id="categoryNameLabel2"/>
+	                    </div>
+	                    <div class="form-group">
+	                      <label for="createdAtLabel2">Created At</label>
+	                        <input type="date" class="form-control"
+	                            id="createdAtLabel2"/>
+	                    </div>
+	                    <div class="form-group">
+	                      <label for="descriptionLabel2">Description</label>
+	                        <input type="text" class="form-control"
+	                        id="descriptionLabel2"/>
+	                    </div>
+	                    <div class="checkbox">
+	                      <label>
+	                          <input id="timeBasedCheckbox2" type="checkbox"/> Time Based
+	                      </label>
+	                    </div>
+	                    <div class="form-group">
+						  <label class="control-label">Select Icon</label>
+						  <select id="iconSelect2">
+						      <option value="car">car</option>
+						      <option value="people">people</option>
+						      <option value="sports">sports</option>
+						  </select>
+	                    </div>
+	                    <div class="form-group colorpicker updateableColorPicker">
+	                      <label for="themeColorPicker2">Theme Color</label>
+							<div class="input-group">
+							    <input type="text" id="themeColorPicker2" class="form-control"/>
+							    <span class="input-group-addon"><i></i></span>
+							</div>
+	                    </div>
+	                    <div class="form-group">
+	                      <label for="questionLimitLabel2">Question Limit</label>
+							<input id="questionLimitLabel2" type="number" min="2" max="50">
+	                    </div>
+	                    <div class="form-group">
+	                      <label for="leaderboardIdLabel2">Leaderboard Id</label>
+	                        <input type="text" class="form-control"
+	                        id="leaderboardIdLabel2"/>
+	                    </div>
+	                    <div class="form-group">
+	                      <label for="productIdentifierLabel2">Product Identifier</label>
+	                        <input type="text" class="form-control"
+	                        id="productIdentifierLabel2"/>
+	                    </div>
+	                    <div class="checkbox">
+	                      <label>
+	                          <input id="onlineCheckbox2" type="checkbox" checked/> Online
+	                      </label>
+	                    </div>
+	                  </form>             
+	              </div>
+ 
+	              <div class="modal-footer">
+	                  <button type="button" class="btn btn-default"
+	                          data-dismiss="modal">
+	                              Close
+	                  </button>
+	                  <button type="button" class="btn btn-primary" id="editCategory">
 	                      Save changes
 	                  </button>
 	              </div>

@@ -22,21 +22,20 @@ router.use(logger);
 
 /* == API Routes  == */
 router.get('/', function(req, res) {
-    res.json({ message: 'Liz API v1.0' });   
+    res.send('Liz API v1.0');   
 });
 
 /* == Category Routes == */
 router.route('/categories').get(function(req, res) {
 	Category.find({}, function(err, categories) {
 		if (err) {
-			return res.status(500).send('Could not retrieve categories');
+			return res.status(500).json({error:'Could not retrieve categories.'});
 		}
 		return res.json(categories);
-	    });
+	});
 });
 router.route('/add/category')
 .post(function(req, res) {
-	console.log(req.body);
 	var category = new Category({
 			name: req.body.name,
 			createdAt: req.body.createdAt,
@@ -52,7 +51,7 @@ router.route('/add/category')
 	
 	category.save(function(err, category) {
 	  if (err) {
-		  return res.status(500).send('Could not save category in the database.');
+		  return res.status(500).json({error:'Could not save category.'});		  
 	  }
 	  res.json(category);
 	});
@@ -60,21 +59,30 @@ router.route('/add/category')
 
 router.route('/delete/category')
 .delete(function(req, res) {
-	Category.remove({ _id: req.body.categoryId }, function(err) {
+	Category.remove({ _id: req.body._id }, function(err) {
 	    if (!err) {
-			res.status(200).json({"msg": "Category deleted."});
+			res.status(200).json({msg: "Category deleted."});
 		} else {
-			res.status(500).json({"msg": "Could not delete this category."});
+			res.status(500).json({error: "Could not delete category."});
 	    }
 	});
 });
 
 router.route('/update/category')
 .post(function(req, res) {
-	res.status(200).send("Need to implement !");
+  	var id = req.body.category._id;
+    delete req.body.category._id;
+	
+	Category.findOneAndUpdate({ _id: id}, req.body.category, function(err, category) {
+		if (err) {
+			res.status(500).json({error:"Could not update category."});
+		} else {
+			res.status(200).json(category);
+		}
+	});
 });
 
 app.use('/api', router);
 
 app.listen(port);
-console.log('Liz started on ' + port);
+console.log('Liz API started on ' + port);
