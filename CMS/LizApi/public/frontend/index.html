@@ -1,0 +1,271 @@
+<html>
+	<head>
+		<!-- Styles -->
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="./libs/colorpicker/css/bootstrap-colorpicker.min.css">
+		<link rel="stylesheet" href="./assets/css/style.css">
+		
+		<!-- Scripts -->
+		<script language="javascript" type="text/javascript" src="config.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script language="javascript" type="text/javascript" src="./libs/colorpicker/js/bootstrap-colorpicker.min.js"></script>
+		<script language="javascript" type="text/javascript" src="api.js"></script>
+		<script language="javascript" type="text/javascript" src="category.js"></script>
+	</head>
+
+	<body>
+		<!-- Navigation -->
+		<nav class="navbar navbar-default">
+		  <div class="container-fluid">
+			  <div class="navbar-header">
+				  <a class="navbar-brand" href="#">
+					  <img width="20" height="20" alt="Brand" src="./assets/images/brand.png">
+				  </a>
+			  </div>
+			  <div class="collapse navbar-collapse"> 
+				 <p class="navbar-text navbar-right">
+                                         <a href="mailto:dehlen@me.com" class="navbar-link">Feedback</a>
+                                 </p>
+				 <p class="navbar-text navbar-right">
+					 <a href="#" class="navbar-link" id="showSettings">Settings</a>
+				 </p> 
+			  </div>
+		  </div>
+	  </nav>
+	  
+	  <!-- Modal Dialogs -->
+	  <div class="modal fade" id="addCategoryDialog" tabindex="-1" role="dialog" aria-labelledby="Add Category" aria-hidden="true">
+		  <div class="modal-dialog">
+	          <div class="modal-content">
+	              <div class="modal-header">
+	                  <button type="button" class="close" 
+	                     data-dismiss="modal">
+	                         <span aria-hidden="true">&times;</span>
+	                         <span class="sr-only">Close</span>
+	                  </button>
+	                  <h4 class="modal-title" id="myModalLabel">
+	                      Add Category
+	                  </h4>
+	              </div>
+            
+	              <div class="modal-body">
+	                  <form role="form">
+	                    <div class="form-group">
+	                      <label for="categoryNameLabel">Category Name</label>
+	                        <input type="text" class="form-control"
+	                        id="categoryNameLabel" placeholder="Sports"/>
+	                    </div>
+	                    <div class="form-group">
+	                      <label for="createdAtLabel">Created At</label>
+	                        <input type="date" class="form-control"
+	                            id="createdAtLabel" placeholder="20.01.2016 10:30"/>
+	                    </div>
+	                    <div class="form-group">
+	                      <label for="descriptionLabel">Description</label>
+	                        <input type="text" class="form-control"
+	                        id="descriptionLabel" placeholder="This is a super category !"/>
+	                    </div>
+	                    <div class="checkbox">
+	                      <label>
+	                          <input id="timeBasedCheckbox" type="checkbox"/> Time Based
+	                      </label>
+	                    </div>
+	                    <div class="form-group">
+						  <label class="control-label">Select Icon</label>
+						  <select id="iconSelect">
+						      <option value="car" selected>car</option>
+						      <option value="people">people</option>
+						      <option value="sports">sports</option>
+						  </select>
+	                    </div>
+	                    <div class="form-group colorpicker">
+	                      <label for="themeColorPicker">Theme Color</label>
+							<div class="input-group">
+							    <input type="text" id="themeColorPicker" class="form-control" placeholder="#FFFFFF"/>
+							    <span class="input-group-addon"><i></i></span>
+							</div>
+	                    </div>
+	                    <div class="form-group">
+	                      <label for="questionLimitLabel">Question Limit</label>
+							<input id="questionLimitLabel" type="number" min="2" max="50" value=10>
+	                    </div>
+	                    <div class="form-group">
+	                      <label for="leaderboardIdLabel">Leaderboard Id</label>
+	                        <input type="text" class="form-control"
+	                        id="leaderboardIdLabel" placeholder=""/>
+	                    </div>
+	                    <div class="form-group">
+	                      <label for="productIdentifierLabel">Product Identifier</label>
+	                        <input type="text" class="form-control"
+	                        id="productIdentifierLabel" placeholder=""/>
+	                    </div>
+	                    <div class="checkbox">
+	                      <label>
+	                          <input id="onlineCheckbox" type="checkbox" checked/> Online
+	                      </label>
+	                    </div>
+	                  </form>             
+	              </div>
+ 
+	              <div class="modal-footer">
+	                  <button type="button" class="btn btn-default"
+	                          data-dismiss="modal">
+	                              Close
+	                  </button>
+	                  <button type="button" class="btn btn-primary" id="addCategory">
+	                      Save changes
+	                  </button>
+	              </div>
+	          </div>
+		  </div>
+	  </div>
+	  
+	  <div class="modal fade" id="editCategoryDialog" tabindex="-1" role="dialog" aria-labelledby="Edit Category" aria-hidden="true">
+		  <div class="modal-dialog">
+	          <div class="modal-content">
+	              <div class="modal-header">
+	                  <button type="button" class="close" 
+	                     data-dismiss="modal">
+	                         <span aria-hidden="true">&times;</span>
+	                         <span class="sr-only">Close</span>
+	                  </button>
+	                  <h4 class="modal-title" id="myModalLabel2">
+	                      Edit Category
+	                  </h4>
+	              </div>
+            
+	              <div class="modal-body">
+	                  <form role="form">
+  	                    <div class="form-group">
+  	                      <label for="categoryIdLabel2">Category ID</label>
+  	                        <input type="text" class="form-control"
+  	                        id="categoryIdLabel2"/>
+  	                    </div>
+	                    <div class="form-group">
+	                      <label for="categoryNameLabel2">Category Name</label>
+	                        <input type="text" class="form-control"
+	                        id="categoryNameLabel2"/>
+	                    </div>
+	                    <div class="form-group">
+	                      <label for="createdAtLabel2">Created At</label>
+	                        <input type="date" class="form-control"
+	                            id="createdAtLabel2"/>
+	                    </div>
+	                    <div class="form-group">
+	                      <label for="descriptionLabel2">Description</label>
+	                        <input type="text" class="form-control"
+	                        id="descriptionLabel2"/>
+	                    </div>
+	                    <div class="checkbox">
+	                      <label>
+	                          <input id="timeBasedCheckbox2" type="checkbox"/> Time Based
+	                      </label>
+	                    </div>
+	                    <div class="form-group">
+						  <label class="control-label">Select Icon</label>
+						  <select id="iconSelect2">
+						      <option value="car">car</option>
+						      <option value="people">people</option>
+						      <option value="sports">sports</option>
+						  </select>
+	                    </div>
+	                    <div class="form-group colorpicker updateableColorPicker">
+	                      <label for="themeColorPicker2">Theme Color</label>
+							<div class="input-group">
+							    <input type="text" id="themeColorPicker2" class="form-control"/>
+							    <span class="input-group-addon"><i></i></span>
+							</div>
+	                    </div>
+	                    <div class="form-group">
+	                      <label for="questionLimitLabel2">Question Limit</label>
+							<input id="questionLimitLabel2" type="number" min="2" max="50">
+	                    </div>
+	                    <div class="form-group">
+	                      <label for="leaderboardIdLabel2">Leaderboard Id</label>
+	                        <input type="text" class="form-control"
+	                        id="leaderboardIdLabel2"/>
+	                    </div>
+	                    <div class="form-group">
+	                      <label for="productIdentifierLabel2">Product Identifier</label>
+	                        <input type="text" class="form-control"
+	                        id="productIdentifierLabel2"/>
+	                    </div>
+	                    <div class="checkbox">
+	                      <label>
+	                          <input id="onlineCheckbox2" type="checkbox" checked/> Online
+	                      </label>
+	                    </div>
+	                  </form>             
+	              </div>
+ 
+	              <div class="modal-footer">
+	                  <button type="button" class="btn btn-default"
+	                          data-dismiss="modal">
+	                              Close
+	                  </button>
+	                  <button type="button" class="btn btn-primary" id="editCategory">
+	                      Save changes
+	                  </button>
+	              </div>
+	          </div>
+		  </div>
+	  </div>
+
+	  
+		
+		<!-- Category Table -->
+		<div class="content">
+			<div class="alert alert-warning" id="warningDialog" style="display: none;">
+			  <strong>Warning</strong>
+			  Could not execute the operation. Might be a problem with our server or your internet connection.
+			</div>
+			
+			<div class="panel panel-default">
+			  <div class="panel-heading">Categories</div>
+			  <div class="panel-body">
+				  <form class="form-inline" role="form">
+				    <div class="form-group">
+				  	   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCategoryDialog" aria-label="Add Category">
+				  	     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Category
+				  	   </button>
+				    </div>
+					
+					<div class="form-group">
+				  	  <div class="input-group">
+				  		  <input type="text" class="form-control" id="tableSearchBar" placeholder="Search for ...">
+				  		  <span class="input-group-btn">
+				  			  <button class="btn btn-default" type="button">Go!</button>
+				  		  </span>
+				  	  </div>
+				    </div>
+				  </form>
+			  </div>
+			  	<div class="table-responsive">
+					<table class="table" id="categoryTable">
+					    <thead>
+					        <tr>
+					            <th>Category ID</th>
+					            <th>Category Name</th>
+					            <th>Created At</th>
+					            <th>Description</th>
+					            <th>Time Based</th>
+					            <th>Icon</th>
+					            <th>Theme Color</th>
+					            <th>Question Limit</th>
+					            <th>Leaderboard ID</th>
+					            <th>Product Identifier</th>
+					            <th>Online</th>
+					            <th></th>
+					            <th></th>
+					            <th></th>
+					        </tr>
+					    </thead>
+					    <tbody class="searchable">
+					    </tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

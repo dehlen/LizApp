@@ -2,14 +2,16 @@ var express    = require('express');
 var app        = express();
 var bodyParser = require('body-parser');
 var mongoose   = require('mongoose');
-var Category       = require('./app/models/category');
+var path       = require('path');
+var Category   = require('./app/models/category');
 
 mongoose.connect('mongodb://localhost/liz');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + '/public'));
-
+app.use('/uploads',express.static(path.join(__dirname, 'public/uploads')));
+app.use('/', express.static(path.join(__dirname, 'public/frontend')));
 var port = process.env.PORT || 8080;
 var router = express.Router();
 
@@ -20,11 +22,6 @@ function logger(req,res,next){
 }
 router.use(logger);
 
-/* == API Routes  == */
-router.get('/', function(req, res) {
-    res.send('Liz API v1.0');   
-});
-
 /* == Category Routes == */
 router.route('/categories').get(function(req, res) {
 	Category.find({}, function(err, categories) {
@@ -34,6 +31,7 @@ router.route('/categories').get(function(req, res) {
 		return res.json(categories);
 	});
 });
+
 router.route('/add/category')
 .post(function(req, res) {
 	var category = new Category({
@@ -83,6 +81,10 @@ router.route('/update/category')
 });
 
 app.use('/api', router);
+
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname + '/public/frontend/index.html'));
+});
 
 app.listen(port);
 console.log('Liz API started on ' + port);
