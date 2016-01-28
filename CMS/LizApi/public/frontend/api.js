@@ -67,3 +67,23 @@ var editCategory = function(category, handler) {
 	    }
 	});
 };
+
+var uploadFile = function(fileInputId, handler) {
+var formData = new FormData();
+formData.append('file', $('#'+fileInputId)[0].files[0]);   
+$.ajax({
+       url : config.baseURL+'api/upload',
+       type : 'POST',
+       data : formData,
+       dataType : 'json',
+       cache : false,
+       processData: false,  
+       contentType: false,
+       success : function(data) {
+           handler(data);
+       },
+       error : function(request, error) {
+	handler(null, error);
+	}	
+});
+};

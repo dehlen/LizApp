@@ -3,15 +3,20 @@ var app        = express();
 var bodyParser = require('body-parser');
 var mongoose   = require('mongoose');
 var path       = require('path');
+var multer = require('multer');
+var fs = require('fs');
 var Category   = require('./app/models/category');
 
 mongoose.connect('mongodb://localhost/liz');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '/public'));
 app.use('/uploads',express.static(path.join(__dirname, 'public/uploads')));
 app.use('/', express.static(path.join(__dirname, 'public/frontend')));
+app.use(multer({
+    dest: path.join(__dirname, 'public/uploads')
+}).single('file'));
+
 var port = process.env.PORT || 8080;
 var router = express.Router();
 
@@ -21,6 +26,23 @@ function logger(req,res,next){
   next();
 }
 router.use(logger);
+
+router.route('/upload').post(function(req, res) {
+	
+if (!req.file) {
+		return res.status(404).json({error: 'No file information was found.'});
+	}
+
+	var uniqueName = 'file-'+(new Date()).getTime()+path.extname(req.file.originalname);
+	var newPath = path.join(__dirname, 'public/uploads', uniqueName);
+	fs.rename(req.file.path, newPath, function(err) {
+    		if (err) {
+			return res.status(500).json({error: 'Could not rename file.'});
+		}
+	});
+	return res.json({'filename': uniqueName});
+	
+});
 
 /* == Category Routes == */
 router.route('/categories').get(function(req, res) {
@@ -51,7 +73,7 @@ router.route('/add/category')
 	  if (err) {
 		  return res.status(500).json({error:'Could not save category.'});		  
 	  }
-	  res.json(category);
+	 return res.json(category);
 	});
 });
 
@@ -59,9 +81,9 @@ router.route('/delete/category')
 .delete(function(req, res) {
 	Category.remove({ _id: req.body._id }, function(err) {
 	    if (!err) {
-			res.status(200).json({msg: "Category deleted."});
+			return res.status(200).json({msg: "Category deleted."});
 		} else {
-			res.status(500).json({error: "Could not delete category."});
+			return res.status(500).json({error: "Could not delete category."});
 	    }
 	});
 });
@@ -73,9 +95,9 @@ router.route('/update/category')
 	
 	Category.findOneAndUpdate({ _id: id}, req.body.category, function(err, category) {
 		if (err) {
-			res.status(500).json({error:"Could not update category."});
+			return res.status(500).json({error:"Could not update category."});
 		} else {
-			res.status(200).json(category);
+			return res.status(200).json(category);
 		}
 	});
 });

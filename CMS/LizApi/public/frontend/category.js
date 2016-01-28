@@ -11,6 +11,7 @@ $(document).ready(function() {
 				jQuery.each(data, function() {
 					var timeBasedClass = (this.timeBased) ? 'class="cell-color-success"' : 'class="cell-color-fail"'; 
 					var onlineClass = (this.online) ? 'class="cell-color-success"' : 'class="cell-color-fail"'; 
+					
 				    $('#categoryTable tbody').append(
 					'<tr>\
 						<td>'+this._id+'</td>\
@@ -18,7 +19,7 @@ $(document).ready(function() {
 						<td>'+this.createdAt+'</td>\
 						<td>'+this.description+'</td>\
 						<td '+timeBasedClass+'></td>\
-						<td class="iconCell"><img src='+config.baseURL+'uploads/'+this.iconName+'.png'+' alt="" height="20" width="20"/></td>\
+						<td class="iconCell"><img src='+config.baseURL+'uploads/'+this.iconName+' alt="" height="20" width="20"/></td>\
 						<td id="'+this.themeColor.substring(1)+'">'+this.themeColor+'</td>\
 						<td>'+this.questionLimit+'</td>\
 						<td>'+this.leaderboardId+'</td>\
@@ -55,7 +56,7 @@ $(document).ready(function() {
 		});
 		return false;
 	});
-	
+	                             
 	$('#addCategory').click(function(e) {
 		//Selectors from add dialog
 		var category = {
@@ -63,58 +64,64 @@ $(document).ready(function() {
 			createdAt: $("#createdAtLabel").val(),
 			description: $("#descriptionLabel").val(),
 			timeBased: $("#timeBasedCheckbox").is(':checked'),
-			iconName: $("#iconSelect option:selected" ).text(),
 			themeColor: $("#themeColorPicker").val(),
 			questionLimit: $("#questionLimitLabel").val(), 
 			leaderboardId: $("#leaderboardIdLabel").val(),
 			productIdentifier: $("#productIdentifierLabel").val(),
 			online: $("#onlineCheckbox").is(':checked')
 		};
-				
-		addCategory(category, function(data, error) {
-			if(error) {
+
+		uploadFile('fileInput', function(data, error) {
+			if (error) {
 				showWarningDialog();
-			} else {						
-				var timeBasedClass = (data.timeBased) ? 'class="cell-color-success"' : 'class="cell-color-fail"'; 
-				var onlineClass = (data.online) ? 'class="cell-color-success"' : 'class="cell-color-fail"'; 
-			    $('#categoryTable tbody').append(
-				'<tr>\
-					<td>'+data._id+'</td>\
-					<td>'+data.name+'</td>\
-					<td>'+data.createdAt+'</td>\
-					<td>'+data.description+'</td>\
-					<td '+timeBasedClass+'></td>\
-					<td class="iconCell"><img src='+config.baseURL+'uploads/'+data.iconName+'.png'+' alt="" height="20" width="20"/></td>\
-					<td id="'+data.themeColor.substring(1)+'">'+data.themeColor+'</td>\
-					<td>'+data.questionLimit+'</td>\
-					<td>'+data.leaderboardId+'</td>\
-					<td>'+data.productIdentifier+'</td>\
-					<td '+onlineClass+'></td>\
-					<td><a href="#" class="editCategory">Edit</a></td>\
-					<td><a href="#" class="removeCategory">Delete</a></td>\
-					<td><a href="#" class="showQuestions">Questions</a></td>\
-				</tr>');
-				
-				$('#'+data.themeColor.substring(1)).css('background-color', data.themeColor);
-				$('#'+data.themeColor.substring(1)).css('color', 'white');
-				$('.iconCell').css('background-color', 'gray');
 			}
+			else {
+				category.iconName = data.filename;
+				addCategory(category, function(data, error) {
+                        if(error) {
+                                showWarningDialog();
+                        } else {
+                                var timeBasedClass = (data.timeBased) ? 'class="cell-color-success"' : 'class="cell-color-fail';
+                                var onlineClass = (data.online) ? 'class="cell-color-success"' : 'class="cell-color-fail';
+                    
+				$('#categoryTable tbody').append(
+                                '<tr>\
+                                      	<td>'+data._id+'</td>\
+                                        <td>'+data.name+'</td>\
+                                        <td>'+data.createdAt+'</td>\
+                                        <td>'+data.description+'</td>\
+                                        <td '+timeBasedClass+'></td>\
+                                        <td class="iconCell"><img src="'+config.baseURL+'uploads/'+data.iconName+'"'+' alt="" height="20" width="20"/></td>\
+                                        <td id="'+data.themeColor.substring(1)+'">'+data.themeColor+'</td>\
+                                        <td>'+data.questionLimit+'</td>\
+                                        <td>'+data.leaderboardId+'</td>\
+                                        <td>'+data.productIdentifier+'</td>\
+                                        <td '+onlineClass+'></td>\
+                                        <td><a href="#" class="editCategory">Edit</a></td>\
+                                        <td><a href="#" class="removeCategory">Delete</a></td>\
+                                        <td><a href="#" class="showQuestions">Questions</a></td>\
+                                </tr>');
+
+                                $('#'+data.themeColor.substring(1)).css('background-color', data.themeColor);
+                                $('#'+data.themeColor.substring(1)).css('color', 'white');
+                                $('.iconCell').css('background-color', 'gray');
+                        }
+                });
+			}		
 		});
+		
 		$("#addCategoryDialog").modal("hide");		
 	});
 	
 	$(document).on("click", ".editCategory", function(e) {
 	    e.preventDefault();
 		var row = $(this).closest("tr");
-		var fpath = row.find("td:nth-child(6)").find("img").attr("src")
-		var fname = fpath.substring(fpath.lastIndexOf("/")+1, fpath.lastIndexOf("."))
 		var old = {
 			_id: row.find("td:nth-child(1)").text(),
 			name:row.find("td:nth-child(2)").text(),
 			createdAt:row.find("td:nth-child(3)").text(),
 			description:row.find("td:nth-child(4)").text(),
 			timeBased:row.find("td:nth-child(5)").hasClass("cell-color-success") ? true : false,
-			iconName:fname,
 			themeColor:row.find("td:nth-child(7)").text(),
 			questionLimit:Number(row.find("td:nth-child(8)").text()), 
 			leaderboardId: row.find("td:nth-child(9)").text(),
@@ -127,7 +134,6 @@ $(document).ready(function() {
 		$("#createdAtLabel2").val(old.createdAt);
 		$("#descriptionLabel2").val(old.description);
 		$("#timeBasedCheckbox2").prop('checked', old.timeBased);
-		$("#iconSelect2").val(old.iconName);
 		$("#themeColorPicker2").val(old.themeColor);
 		$("#questionLimitLabel2").val(old.questionLimit); 
 		$("#leaderboardIdLabel2").val(old.leaderboardId);
@@ -148,18 +154,22 @@ $(document).ready(function() {
 			createdAt: $("#createdAtLabel2").val(),
 			description: $("#descriptionLabel2").val(),
 			timeBased: $("#timeBasedCheckbox2").is(':checked'),
-			iconName: $("#iconSelect2 option:selected").text(),
 			themeColor: $("#themeColorPicker2").val(),
 			questionLimit: Number($("#questionLimitLabel2").val()), 
 			leaderboardId: $("#leaderboardIdLabel2").val(),
 			productIdentifier: $("#productIdentifierLabel2").val(),
 			online: $("#onlineCheckbox2").is(':checked')
 		};
-		
-		editCategory(category, function(data, error) {
-			if(error) {
-				showWarningDialog();
-			} else {
+		 uploadFile('fileInput2', function(data, error) {
+                        if (error) {
+                                showWarningDialog();
+                        }
+                        else {
+			category.iconName = data.filename;
+				editCategory(category, function(data, error) {
+					if(error) {
+						showWarningDialog();
+					} else {
 				var timeBasedClass = (data.timeBased) ? 'class="cell-color-success"' : 'class="cell-color-fail"'; 
 				var onlineClass = (data.online) ? 'class="cell-color-success"' : 'class="cell-color-fail"'; 
 			    
@@ -168,7 +178,7 @@ $(document).ready(function() {
 				newTableRow += '<td>'+data.createdAt+'</td>';
 				newTableRow += '<td>'+data.description+'</td>';
 				newTableRow += '<td '+timeBasedClass+'></td>';
-				newTableRow += '<td class="iconCell"><img src="'+config.baseURL+'uploads/'+data.iconName+'.png"'+' alt="" height="20" width="20"/></td>';
+				newTableRow += '<td class="iconCell"><img src="'+config.baseURL+'uploads/'+data.iconName+'"'+' alt="" height="20" width="20"/></td>';
 				newTableRow += '<td id="'+data.themeColor.substring(1)+'">'+data.themeColor+'</td>';
 				newTableRow += '<td>'+data.questionLimit+'</td>';
 				newTableRow += '<td>'+data.leaderboardId+'</td>';
@@ -185,6 +195,8 @@ $(document).ready(function() {
 				$('.iconCell').css('background-color', 'gray');
 			}
 		});
+		}
+});
 		$('#editCategoryDialog').modal('hide');
 	});
 	
