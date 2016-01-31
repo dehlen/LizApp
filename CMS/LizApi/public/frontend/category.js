@@ -1,8 +1,10 @@
 //TODO: paginate table
 $(document).ready(function() {
 	
+	var currentEditedRow;
+
 	$('.colorpicker').colorpicker();
-	
+		 
 	var loadCategories = function() {
 		loadAllCategories(function(data, error) {
 			if(error) {
@@ -115,18 +117,18 @@ $(document).ready(function() {
 	
 	$(document).on("click", ".editCategory", function(e) {
 	    e.preventDefault();
-		var row = $(this).closest("tr");
+		currentEditedRow = $(this).closest("tr");
 		var old = {
-			_id: row.find("td:nth-child(1)").text(),
-			name:row.find("td:nth-child(2)").text(),
-			createdAt:row.find("td:nth-child(3)").text(),
-			description:row.find("td:nth-child(4)").text(),
-			timeBased:row.find("td:nth-child(5)").hasClass("cell-color-success") ? true : false,
-			themeColor:row.find("td:nth-child(7)").text(),
-			questionLimit:Number(row.find("td:nth-child(8)").text()), 
-			leaderboardId: row.find("td:nth-child(9)").text(),
-			productIdentifier:row.find("td:nth-child(10)").text(),
-			online: row.find("td:nth-child(11)").hasClass("cell-color-success") ? true : false
+			_id: currentEditedRow.find("td:nth-child(1)").text(),
+			name:currentEditedRow.find("td:nth-child(2)").text(),
+			createdAt:currentEditedRow.find("td:nth-child(3)").text(),
+			description:currentEditedRow.find("td:nth-child(4)").text(),
+			timeBased:currentEditedRow.find("td:nth-child(5)").hasClass("cell-color-success") ? true : false,
+			themeColor:currentEditedRow.find("td:nth-child(7)").text(),
+			questionLimit:Number(currentEditedRow.find("td:nth-child(8)").text()), 
+			leaderboardId: currentEditedRow.find("td:nth-child(9)").text(),
+			productIdentifier:currentEditedRow.find("td:nth-child(10)").text(),
+			online: currentEditedRow.find("td:nth-child(11)").hasClass("cell-color-success") ? true : false
 		};
 		
 		$("#categoryIdLabel2").val(old._id);
@@ -188,7 +190,7 @@ $(document).ready(function() {
 				newTableRow += '<td><a href="#" class="removeCategory">Delete</a></td>';
 				newTableRow += '<td><a href="#" class="showQuestions">Questions</a></td>';
 				
-				$('#categoryTable tr:last').html(newTableRow);
+				currentEditedRow.html(newTableRow);
 				
 				$('#'+data.themeColor.substring(1)).css('background-color', data.themeColor);
 				$('#'+data.themeColor.substring(1)).css('color', 'white');
