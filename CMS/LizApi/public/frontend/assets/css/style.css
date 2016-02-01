@@ -29,3 +29,7 @@ td, th {
 .mediaCell {
 	background-color: gray;
 }
+
+#addQuestionDialogButton {
+	margin-right:5px;
+}

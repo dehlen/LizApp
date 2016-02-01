@@ -17,7 +17,8 @@ app.use('/', express.static(path.join(__dirname, 'public/frontend')));
 app.use(multer({
     dest: path.join(__dirname, 'public/uploads')
 }).single('file'));
-
+app.set('view engine', 'jade');
+app.set('views', path.join(__dirname, 'public/frontend'))
 var port = process.env.PORT || 8080;
 var router = express.Router();
 
@@ -104,8 +105,8 @@ router.route('/update/category')
 });
 
 /* == Question Routes == */
-router.route('/questions').get(function(req, res) {
-	Category.find({}, function(err, questions) {
+router.route('/questions/:categoryId').get(function(req, res) {
+	Question.find({categoryId:req.params.categoryId}, function(err, questions) {
 		if (err) {
 			return res.status(500).json({error:'Could not retrieve questions.'});
 		}
@@ -116,6 +117,7 @@ router.route('/questions').get(function(req, res) {
 router.route('/add/question')
 .post(function(req, res) {
 	var question = new Question({
+		categoryId:req.body.categoryId,
 		type:req.body.type,
 		text:req.body.text,
 		answer:req.body.answer,
@@ -139,6 +141,10 @@ app.use('/api', router);
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname + '/public/frontend/index.html'));
+});
+
+app.get('/question/:categoryId', function(req, res) {
+  res.render('question', { categoryId: req.params.categoryId});
 });
 
 app.listen(port);

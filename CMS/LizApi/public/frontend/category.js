@@ -59,12 +59,23 @@ $(document).ready(function() {
 		return false;
 	});
 	
+	$(document).on("click", ".showQuestions", function(e) {
+	    e.preventDefault();
+		console.log("Triggered");
+		var tableRow = $(this).closest('tr');
+		var _id = tableRow.children('td:first').text();
+		document.location.href='/question/'+_id;
+		return false;
+	});
+	
 	$(document).on("click", "#showModalCategoryDialog", function() {
 	    $("#createdAtLabel").val(moment().format('DD.MM.YYYY HH:mm:ss'));
 	});
 	                             
 	$('#addCategory').click(function(e) {
 		//Selectors from add dialog
+		$("input").blur();
+		
 		var category = {
 			name: $("#categoryNameLabel").val(),
 			createdAt: $("#createdAtLabel").val(),

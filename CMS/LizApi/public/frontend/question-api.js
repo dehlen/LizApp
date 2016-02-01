@@ -1,6 +1,6 @@
-var loadAllQuestions = function(handler) {
+var loadAllQuestions = function(categoryId, handler) {
 	$.ajax({
-	    url : config.baseURL+'api/questions',
+	    url : config.baseURL+'api/questions/'+categoryId,
 	    type : 'GET',
 		cache : false,
 	    success : function(data) {              

@@ -2,11 +2,24 @@
 $(document).ready(function() {
 	
 	var loadQuestions = function() {
-		loadAllQuestions(function(data, error) {
+		loadAllQuestions($("#categoryIdHeader").text(), function(data, error) {
 			if(error) {
 				showWarningDialog();
 			} else {
 				jQuery.each(data, function() {
+					var mediaCell;
+					if (this.type == "text" || this.type == "truefalse") {
+						mediaCell = '<td class="mediaCell">None</td>'
+					
+					} else if (this.type == "video") {
+						mediaCell = '<td class="mediaCell"><img src='+config.baseURL+'uploads/video.png alt="" height="20" width="20"/></td>'
+					
+					} else if (this.type == "audio") {
+						mediaCell = '<td class="mediaCell"><img src='+config.baseURL+'uploads/audio.png alt="" height="20" width="20"/></td>'
+						
+					} else {
+						mediaCell = '<td class="mediaCell"><img src='+config.baseURL+'uploads/'+this.mediaName+' alt="" height="20" width="20"/></td>'
+					}
 				    $('#questionTable tbody').append(
 					'<tr>\
 						<td>'+this._id+'</td>\
@@ -16,7 +29,7 @@ $(document).ready(function() {
 						<td>'+this.option1+'</td>\
 						<td>'+this.option2+'</td>\
 						<td>'+this.option3+'</td>\
-						<td class="mediaCell"><img src='+config.baseURL+'uploads/'+this.mediaName+' alt="" height="20" width="20"/></td>\
+						'+mediaCell+'\
 						<td>'+this.duration+'</td>\
 						<td>'+this.explanation+'</td>\
 						<td><a href="#" class="editQuestion">Edit</a></td>\
@@ -41,7 +54,7 @@ $(document).ready(function() {
 	    	document.getElementById("questionFileInput").accept = "image/*";
 	    } else if (valueSelected == "video") {
 	    	$("#questionFileInput").prop('disabled', false);
-	    	document.getElementById("questionFileInput").accept = "video/*";
+	    	document.getElementById("questionFileInput").accept = "video/mp4,video/x-m4v,video/*";
 	    } else if (valueSelected == "audio") {
 	    	$("#questionFileInput").prop('disabled', false);
 	    	document.getElementById("questionFileInput").accept = "audio/*";
@@ -53,7 +66,10 @@ $(document).ready(function() {
 	});
 	
 	$('#addQuestion').click(function(e) {
+		$("input").blur();
+		
 		var question = {
+			categoryId: $("#categoryIdHeader").text(),
 			type: $("#questionType").val(),
 			text: $("#questionText").val(),
 			answer: $("#answerText").val(),
@@ -95,31 +111,44 @@ $(document).ready(function() {
 				else {
 					question.mediaName = data.filename;
 					addQuestion(question, function(data, error) {
-	                        if(error) {
-	                                showWarningDialog();
-	                        } else {
-							    $('#questionTable tbody').append(
-								'<tr>\
-									<td>'+data._id+'</td>\
-									<td>'+data.type+'</td>\
-									<td>'+data.text+'</td>\
-									<td>'+data.answer+'</td>\
-									<td>'+data.option1+'</td>\
-									<td>'+data.option2+'</td>\
-									<td>'+data.option3+'</td>\
-									<td class="mediaCell"><img src='+config.baseURL+'uploads/'+data.mediaName+' alt="" height="20" width="20"/></td>\
-									<td>'+data.duration+'</td>\
-									<td>'+data.explanation+'</td>\
-									<td><a href="#" class="editQuestion">Edit</a></td>\
-									<td><a href="#" class="removeQuestion">Delete</a></td>\
-								</tr>'); 
-	                        }
+                        if(error) {
+                                showWarningDialog();
+                        } else {
+							var mediaCell;
+							if (data.type == "text" || data.type == "truefalse") {
+								mediaCell = '<td class="mediaCell">None</td>'
+					
+							} else if (data.type == "video") {
+								mediaCell = '<td class="mediaCell"><img src='+config.baseURL+'uploads/video.png alt="" height="20" width="20"/></td>'
+					
+							} else if (data.type == "audio") {
+								mediaCell = '<td class="mediaCell"><img src='+config.baseURL+'uploads/audio.png alt="" height="20" width="20"/></td>'
+						
+							} else {
+								mediaCell = '<td class="mediaCell"><img src='+config.baseURL+'uploads/'+this.mediaName+' alt="" height="20" width="20"/></td>'
+							}
+						    $('#questionTable tbody').append(
+							'<tr>\
+								<td>'+data._id+'</td>\
+								<td>'+data.type+'</td>\
+								<td>'+data.text+'</td>\
+								<td>'+data.answer+'</td>\
+								<td>'+data.option1+'</td>\
+								<td>'+data.option2+'</td>\
+								<td>'+data.option3+'</td>\
+								'+mediaCell+'\
+								<td>'+data.duration+'</td>\
+								<td>'+data.explanation+'</td>\
+								<td><a href="#" class="editQuestion">Edit</a></td>\
+								<td><a href="#" class="removeQuestion">Delete</a></td>\
+							</tr>'); 
+                        }
 	                });
 				}		
 			});
 		}
 		
-		$("#addCategoryDialog").modal("hide");		
+		$("#addQuestionDialog").modal("hide");		
 	});
 	
 	
