@@ -25,3 +25,7 @@ td, th {
 .cell-color-fail:after {
   content: "NO";
 }
+
+.mediaCell {
+	background-color: gray;
+}

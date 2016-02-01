@@ -10,7 +10,8 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<script language="javascript" type="text/javascript" src="./libs/colorpicker/js/bootstrap-colorpicker.min.js"></script>
-		<script language="javascript" type="text/javascript" src="api.js"></script>
+		<script language="javascript" type="text/javascript" src="./libs/moment/js/moment.js"></script>
+		<script language="javascript" type="text/javascript" src="category-api.js"></script>
 		<script language="javascript" type="text/javascript" src="category.js"></script>
 	</head>
 
@@ -59,7 +60,7 @@
 	                    <div class="form-group">
 	                      <label for="createdAtLabel">Created At</label>
 	                        <input type="date" class="form-control"
-	                            id="createdAtLabel" placeholder="20.01.2016 10:30"/>
+	                            id="createdAtLabel" disabled/>
 	                    </div>
 	                    <div class="form-group">
 	                      <label for="descriptionLabel">Description</label>
@@ -72,7 +73,7 @@
 	                      </label>
 	                    </div>
 			    <div class="form-group">
-				   <label for="fileInput">Icon:</label>
+				   <label for="fileInput">Icon</label>
                                    <input type="file" id="fileInput" name="file" accept="image/*"/>
 			    </div>
 	                    <div class="form-group colorpicker">
@@ -84,7 +85,7 @@
 	                    </div>
 	                    <div class="form-group">
 	                      <label for="questionLimitLabel">Question Limit</label>
-							<input id="questionLimitLabel" type="number" min="2" max="50" value=10>
+							<input id="questionLimitLabel" class="form-control" type="number" min="2" max="50" value="10">
 	                    </div>
 	                    <div class="form-group">
 	                      <label for="leaderboardIdLabel">Leaderboard Id</label>
@@ -218,7 +219,7 @@
 			  <div class="panel-body">
 				  <form class="form-inline" role="form">
 				    <div class="form-group">
-				  	   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addCategoryDialog" aria-label="Add Category">
+				  	   <button type="button" id="showModalCategoryDialog" class="btn btn-primary" data-toggle="modal" data-target="#addCategoryDialog" aria-label="Add Category">
 				  	     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Category
 				  	   </button>
 				    </div>

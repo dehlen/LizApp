@@ -4,7 +4,7 @@ $(document).ready(function() {
 	var currentEditedRow;
 
 	$('.colorpicker').colorpicker();
-		 
+	
 	var loadCategories = function() {
 		loadAllCategories(function(data, error) {
 			if(error) {
@@ -57,6 +57,10 @@ $(document).ready(function() {
 			}
 		});
 		return false;
+	});
+	
+	$(document).on("click", "#showModalCategoryDialog", function() {
+	    $("#createdAtLabel").val(moment().format('DD.MM.YYYY HH:mm:ss'));
 	});
 	                             
 	$('#addCategory').click(function(e) {

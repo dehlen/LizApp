@@ -6,6 +6,7 @@ var path       = require('path');
 var multer = require('multer');
 var fs = require('fs');
 var Category   = require('./app/models/category');
+var Question   = require('./app/models/question');
 
 mongoose.connect('mongodb://localhost/liz');
 
@@ -99,6 +100,38 @@ router.route('/update/category')
 		} else {
 			return res.status(200).json(category);
 		}
+	});
+});
+
+/* == Question Routes == */
+router.route('/questions').get(function(req, res) {
+	Category.find({}, function(err, questions) {
+		if (err) {
+			return res.status(500).json({error:'Could not retrieve questions.'});
+		}
+		return res.json(questions);
+	});
+});
+
+router.route('/add/question')
+.post(function(req, res) {
+	var question = new Question({
+		type:req.body.type,
+		text:req.body.text,
+		answer:req.body.answer,
+		option1:req.body.option1,
+		option2:req.body.option2,
+		option3:req.body.option3,
+		mediaName:req.body.mediaName,
+		duration:req.body.duration,
+		explanation:req.body.explanation
+	});
+	
+	question.save(function(err, question) {
+	  if (err) {
+		  return res.status(500).json({error:'Could not save question.'});		  
+	  }
+	 return res.json(question);
 	});
 });
 
