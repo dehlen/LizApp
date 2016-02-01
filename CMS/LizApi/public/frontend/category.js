@@ -61,7 +61,6 @@ $(document).ready(function() {
 	
 	$(document).on("click", ".showQuestions", function(e) {
 	    e.preventDefault();
-		console.log("Triggered");
 		var tableRow = $(this).closest('tr');
 		var _id = tableRow.children('td:first').text();
 		document.location.href='/question/'+_id;
