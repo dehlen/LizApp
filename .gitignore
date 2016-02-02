@@ -57,5 +57,5 @@ Carthage/Build
 
 fastlane/report.xml
 fastlane/screenshots
-CMS/LizApi/node_modules/
-CMS/LizApi/public/uploads/
+LizApi/node_modules/
+LizApi/public/uploads/
