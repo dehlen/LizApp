@@ -4,8 +4,8 @@ var bodyParser = require('body-parser');
 var mongoose   = require('mongoose');
 var path       = require('path');
 var multer = require('multer');
-
-mongoose.connect('mongodb://localhost/liz');
+var dbConfig = require('./app/db.js');
+mongoose.connect(dbConfig.url);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
