@@ -1,17 +1,9 @@
 var express = require('express');
-var fs = require('fs');
-var path       = require('path');
-var router = express.Router();
-var winston = require('winston');
+var fs      = require('fs');
+var path    = require('path');
+var router  = express.Router();
 
-winston.add(winston.transports.File, { filename: '/var/log/requests.log', level: "info" });
-function logger(req,res,next) {
-        winston.info('HTTP Request', {timestamp: new Date(), method: req.method, url:req.url});
-        next();
-}
-
-router.use(logger);
-
+router.use(require('../logger').logger);
 router.use('/api', require('./categoryRouter'))
 router.use('/api', require('./questionRouter'))
 
