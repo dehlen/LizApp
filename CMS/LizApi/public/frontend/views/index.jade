@@ -1,0 +1,170 @@
+html
+  head
+    // Styles
+    link(href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='../libs/colorpicker/css/bootstrap-colorpicker.min.css')
+    link(rel='stylesheet', href='../assets/css/style.css')
+    // Scripts
+    script(language='javascript', type='text/javascript', src='../assets/js/config.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+    script(language='javascript', type='text/javascript', src='../libs/colorpicker/js/bootstrap-colorpicker.min.js')
+    script(language='javascript', type='text/javascript', src='../libs/moment/js/moment.js')
+    script(language='javascript', type='text/javascript', src='../assets/js/category-api.js')
+    script(language='javascript', type='text/javascript', src='../assets/js/category-operations.js')
+  body
+    // Navigation
+    nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          a.navbar-brand(href='/')
+            img(width='20', height='20', alt='Brand', src='../assets/images/brand.png')
+        .collapse.navbar-collapse
+          p.navbar-text.navbar-right
+            a.navbar-link(href='mailto:dehlen@me.com') Feedback
+          p.navbar-text.navbar-right
+            a#showSettings.navbar-link(href='#') Settings
+    // Modal Dialogs
+    #addCategoryDialog.modal.fade(tabindex='-1', role='dialog', aria-labelledby='Add Category', aria-hidden='true')
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal')
+              span(aria-hidden='true') ×
+              span.sr-only Close
+            h4#myModalLabel.modal-title
+              | Add Category
+          .modal-body
+            form(role='form')
+              .form-group
+                label(for='categoryNameLabel') Category Name
+                input#categoryNameLabel.form-control(type='text', placeholder='Sports')
+              .form-group
+                label(for='createdAtLabel') Created At
+                input#createdAtLabel.form-control(type='date', disabled='')
+              .form-group
+                label(for='descriptionLabel') Description
+                input#descriptionLabel.form-control(type='text', placeholder='This is a super category !')
+              .checkbox
+                label
+                  input#timeBasedCheckbox(type='checkbox')
+                  |  Time Based
+              .form-group
+                label(for='fileInput') Icon
+                input#fileInput(type='file', name='file', accept='image/*')
+              .form-group.colorpicker
+                label(for='themeColorPicker') Theme Color
+                .input-group
+                  input#themeColorPicker.form-control(type='text', placeholder='#FFFFFF')
+                  span.input-group-addon
+                    i
+              .form-group
+                label(for='questionLimitLabel') Question Limit
+                input#questionLimitLabel.form-control(type='number', min='2', max='50', value='10')
+              .form-group
+                label(for='leaderboardIdLabel') Leaderboard Id
+                input#leaderboardIdLabel.form-control(type='text', placeholder='')
+              .form-group
+                label(for='productIdentifierLabel') Product Identifier
+                input#productIdentifierLabel.form-control(type='text', placeholder='')
+              .checkbox
+                label
+                  input#onlineCheckbox(type='checkbox', checked='')
+                  |  Online
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal')
+              | Close
+            button#addCategory.btn.btn-primary(type='button')
+              | Save changes
+    #editCategoryDialog.modal.fade(tabindex='-1', role='dialog', aria-labelledby='Edit Category', aria-hidden='true')
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal')
+              span(aria-hidden='true') ×
+              span.sr-only Close
+            h4#myModalLabel2.modal-title
+              | Edit Category
+          .modal-body
+            form(role='form')
+              .form-group
+                label(for='categoryIdLabel2') Category ID
+                input#categoryIdLabel2.form-control(type='text')
+              .form-group
+                label(for='categoryNameLabel2') Category Name
+                input#categoryNameLabel2.form-control(type='text')
+              .form-group
+                label(for='createdAtLabel2') Created At
+                input#createdAtLabel2.form-control(type='date')
+              .form-group
+                label(for='descriptionLabel2') Description
+                input#descriptionLabel2.form-control(type='text')
+              .checkbox
+                label
+                  input#timeBasedCheckbox2(type='checkbox')
+                  |  Time Based
+              .form-group
+                label(for='fileInput2') Icon:
+                input#fileInput2(type='file', name='file', accept='image/*')
+              .form-group.colorpicker.updateableColorPicker
+                label(for='themeColorPicker2') Theme Color
+                .input-group
+                  input#themeColorPicker2.form-control(type='text')
+                  span.input-group-addon
+                    i
+              .form-group
+                label(for='questionLimitLabel2') Question Limit
+                input#questionLimitLabel2(type='number', min='2', max='50')
+              .form-group
+                label(for='leaderboardIdLabel2') Leaderboard Id
+                input#leaderboardIdLabel2.form-control(type='text')
+              .form-group
+                label(for='productIdentifierLabel2') Product Identifier
+                input#productIdentifierLabel2.form-control(type='text')
+              .checkbox
+                label
+                  input#onlineCheckbox2(type='checkbox', checked='')
+                  |  Online
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal')
+              | Close
+            button#editCategory.btn.btn-primary(type='button')
+              | Save changes
+    // Category Table
+    .content
+      #warningDialog.alert.alert-warning(style='display: none;')
+        strong Warning
+        | 			  Could not execute the operation. Might be a problem with our server or your internet connection.
+      .panel.panel-default
+        .panel-heading Categories
+        .panel-body
+          form.form-inline(role='form')
+            .form-group
+              button#showModalCategoryDialog.btn.btn-primary(type='button', data-toggle='modal', data-target='#addCategoryDialog', aria-label='Add Category')
+                span.glyphicon.glyphicon-plus(aria-hidden='true')
+                |  Add Category
+            .form-group
+              .input-group
+                input#tableSearchBar.form-control(type='text', placeholder='Search for ...')
+                span.input-group-btn
+                  button.btn.btn-default(type='button') Go!
+        .table-responsive
+          table#categoryTable.table
+            thead
+              tr
+                th Category ID
+                th Category Name
+                th Created At
+                th Description
+                th Time Based
+                th Icon
+                th Theme Color
+                th Question Limit
+                th Leaderboard ID
+                th Product Identifier
+                th Online
+                th
+                th
+                th
+            tbody.searchable
+
