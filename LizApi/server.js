@@ -3,9 +3,10 @@ var app        = express();
 var bodyParser = require('body-parser');
 var mongoose   = require('mongoose');
 var path       = require('path');
-var multer = require('multer');
-var dbConfig = require('./app/db.js');
-mongoose.connect(dbConfig.url);
+var multer     = require('multer');
+var config     = require('./app/config.js');
+
+mongoose.connect(config.db.url);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -19,7 +20,7 @@ app.use(multer({
 app.set('view engine', 'jade');
 app.set('views', path.join(__dirname, 'public/frontend/views'));
 
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || config.server.port;
 
 app.use(require('./app/routes/controller'));
 app.listen(port);
