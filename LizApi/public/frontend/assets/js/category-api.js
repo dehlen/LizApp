@@ -15,7 +15,7 @@ var loadAllCategories = function(handler) {
 
 var addCategory = function(category, handler) {
 	$.ajax({
-	    url : config.baseURL+'api/add/category',
+	    url : config.baseURL+'api/categories',
 	    type : 'POST',
 	    data : JSON.stringify(category),
 	    dataType:'json',
@@ -33,7 +33,7 @@ var addCategory = function(category, handler) {
 
 var removeCategory = function(id, handler) {
 	$.ajax({
-	    url : config.baseURL+'api/delete/category',
+	    url : config.baseURL+'api/categories',
 	    type : 'DELETE',
 	    data : JSON.stringify(id),
 	    dataType:'json',
@@ -52,8 +52,8 @@ var removeCategory = function(id, handler) {
 var editCategory = function(category, handler) {
 	var json = {"category": category};	
 	$.ajax({
-	    url : config.baseURL+'api/update/category',
-	    type : 'POST',
+	    url : config.baseURL+'api/categories',
+	    type : 'PUT',
 	    data : JSON.stringify(json),
 	    dataType:'json',
         contentType: "application/json",

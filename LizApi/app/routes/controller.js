@@ -10,7 +10,7 @@ router.route('/').get(function(req, res) {
   res.render('index');
 });
 
-router.route('/question/:categoryId').get(function(req, res) {
+router.route('/questions/:categoryId').get(function(req, res) {
   res.render('question', { categoryId: req.params.categoryId});
 });
 

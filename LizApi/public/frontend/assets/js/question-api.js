@@ -15,7 +15,7 @@ var loadAllQuestions = function(categoryId, handler) {
 
 var addQuestion = function(question, handler) {
 	$.ajax({
-	    url : config.baseURL+'api/add/question',
+	    url : config.baseURL+'api/questions',
 	    type : 'POST',
 	    data : JSON.stringify(question),
 	    dataType:'json',
@@ -33,7 +33,7 @@ var addQuestion = function(question, handler) {
 
 var removeQuestion = function(id, handler) {
 	$.ajax({
-	    url : config.baseURL+'api/delete/question',
+	    url : config.baseURL+'api/questions',
 	    type : 'DELETE',
 	    data : JSON.stringify(id),
 	    dataType:'json',
@@ -52,8 +52,8 @@ var removeQuestion = function(id, handler) {
 var editQuestion = function(question, handler) {
 	var json = {"question": question};	
 	$.ajax({
-	    url : config.baseURL+'api/update/question',
-	    type : 'POST',
+	    url : config.baseURL+'api/questions',
+	    type : 'PUT',
 	    data : JSON.stringify(json),
 	    dataType:'json',
         contentType: "application/json",

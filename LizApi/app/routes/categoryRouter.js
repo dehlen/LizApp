@@ -11,7 +11,7 @@ router.route('/categories').get(function(req, res) {
 	});
 });
 
-router.route('/add/category')
+router.route('categories')
 .post(function(req, res) {
 	var category = new Category({
 			name: req.body.name,
@@ -34,7 +34,7 @@ router.route('/add/category')
 	});
 });
 
-router.route('/delete/category')
+router.route('/categories')
 .delete(function(req, res) {
 	Category.remove({ _id: req.body._id }, function(err) {
 	    if (!err) {
@@ -45,8 +45,8 @@ router.route('/delete/category')
 	});
 });
 
-router.route('/update/category')
-.post(function(req, res) {
+router.route('/categories')
+.put(function(req, res) {
   	var id = req.body.category._id;
 	delete req.body.category._id;
 

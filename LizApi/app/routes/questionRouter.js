@@ -11,7 +11,7 @@ router.route('/questions/:categoryId').get(function(req, res) {
 	});
 });
 
-router.route('/add/question')
+router.route('/questions')
 .post(function(req, res) {
 	var question = new Question({
 		categoryId:req.body.categoryId,
@@ -34,7 +34,7 @@ router.route('/add/question')
 	});
 });
 
-router.route('/delete/question')
+router.route('/questions')
 .delete(function(req, res) {
 	Question.remove({ _id: req.body._id }, function(err) {
 	    if (!err) {
@@ -45,8 +45,8 @@ router.route('/delete/question')
 	});
 });
 
-router.route('/update/question')
-.post(function(req, res) {
+router.route('/questions')
+.put(function(req, res) {
   	var id = req.body.question._id;
 	 delete req.body.question._id;
 
