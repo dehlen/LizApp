@@ -34,4 +34,29 @@ router.route('/add/question')
 	});
 });
 
+router.route('/delete/question')
+.delete(function(req, res) {
+	Question.remove({ _id: req.body._id }, function(err) {
+	    if (!err) {
+			return res.status(200).json({msg: "Question deleted."});
+		} else {
+			return res.status(500).json({error: "Could not delete question."});
+	    }
+	});
+});
+
+router.route('/update/question')
+.post(function(req, res) {
+  	var id = req.body.question._id;
+	 delete req.body.question._id;
+
+	Question.findOneAndUpdate({ _id: id}, req.body.question, function(err, question) {
+		if (err) {
+			return res.status(500).json({error:"Could not update question."});
+		} else {
+			return res.status(200).json(question);
+		}
+	});
+});
+
 module.exports = router;
