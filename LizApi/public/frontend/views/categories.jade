@@ -4,35 +4,37 @@ block content
     include navbar
     .pageContent
       .panel.panel-default
-        .panel-heading
-          |  Category Id: #{categoryId}
+        .panel-heading Categories
         .panel-body
           form.form-inline(role='form')
             .form-group
               button.openModalDialogButton.btn.btn-primary(type='button')
                 span.glyphicon.glyphicon-plus(aria-hidden='true')
-                |  Add Question
+                |  Add Category
             .form-group
               .input-group
                 input#tableSearchBar.form-control(type='text', placeholder='Search for ...')
                 span.input-group-btn
                   button.btn.btn-default(type='button') Go!
         .table-responsive
-          table#questionTable.table
+          table#categoryTable.table
             thead
               tr
-                th Question ID
-                th Type
-                th Question
-                th Answer
-                th Option #1
-                th Option #2
-                th Option #3
-                th Media
-                th Duration
-                th Explanation
+                th Category ID
+                th Category Name
+                th Created At
+                th Description
+                th Time Based
+                th Icon
+                th Theme Color
+                th Question Limit
+                th Leaderboard ID
+                th Product Identifier
+                th Online
+                th
                 th
                 th
             tbody.searchable
 
 block scripts
+

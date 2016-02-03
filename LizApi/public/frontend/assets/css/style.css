@@ -4,15 +4,11 @@ body {
 	height:100%;
 }
 
-#four04 {
-  padding: 20px;
-}
-
 td, th {
 	text-align:center;
 }
 
-.content {
+.pageContent {
 	padding: 15px;
 }
 
@@ -36,14 +32,15 @@ td, th {
   content: "NO";
 }
 
-.mediaCell {
+.media-cell {
 	background-color: gray;
 }
 
-#addQuestionDialogButton {
+.openModalDialogButton {
 	margin-right:5px;
 }
 
-#showModalCategoryDialog {
-	margin-right:5px;
+#four04 {
+  padding: 20px;
 }
+

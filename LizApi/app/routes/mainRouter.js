@@ -3,13 +3,13 @@ var fs      = require('fs');
 var path    = require('path');
 var router  = express.Router();
 
-router.use(require('../middleware/logger').logger);
+router.use(require('../logger').logger);
 router.use('/api', require('./categoryRouter'));
 router.use('/api', require('./questionRouter'));
 router.use('/game', require('./gameLogicRouter'));
 
 router.route('/').get(function(req, res) {
-	res.render('index');
+	res.render('categories');
 });
 
 router.route('/questions/:categoryId').get(function(req, res) {
