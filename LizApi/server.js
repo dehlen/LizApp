@@ -22,7 +22,7 @@ app.set('views', path.join(__dirname, 'public/frontend/views'));
 
 var port = process.env.PORT || config.server.port;
 
-app.use(require('./app/routes/controller'));
+app.use(require('./app/routes/mainRouter'));
 app.listen(port);
 
 console.log('Liz API started on ' + port);
