@@ -1,5 +1,34 @@
 var config = {
-	//baseURL: 'http://s18537127.onlinehome-server.info:8080/'
-	//baseURL: 'http://localhost:8080/'
-	baseURL : '/'
+	baseURL : '/', //legacy
+	
+	router: {
+		baseurl: {
+			dev: 'http://localhost:8080/',
+			prod: 'http://87.106.80.36:8080/'
+		},
+
+		category: {
+			get: 'api/categories',
+			post: 'api/categories',
+			put: 'api/categories',
+			delete: 'api/categories'
+		},
+
+		question: {
+			get: 'api/questions', // /:categoryId
+			post: 'api/questions',
+			put: 'api/questions',
+			delete: 'api/questions'
+		},
+
+		game: {
+			randomQuestions: 'game/questions' // /:categoryId
+		},
+
+		web: {
+			upload: 'upload',
+			index: '',
+			questions: 'questions' // /:categoryId
+		}
+	}
 };

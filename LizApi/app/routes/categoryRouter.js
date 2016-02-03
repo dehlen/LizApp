@@ -39,7 +39,7 @@ router.route('/categories')
 	Category.remove({ _id: req.body._id }, function(err) {
 	    if (!err) {
 			return res.status(200).json({msg: "Category deleted."});
-		} else {
+	    } else {
 			return res.status(500).json({error: "Could not delete category."});
 	    }
 	});
