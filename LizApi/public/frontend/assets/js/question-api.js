@@ -72,7 +72,7 @@ var uploadFile = function(fileInputId, handler) {
 var formData = new FormData();
 formData.append('file', $('#'+fileInputId)[0].files[0]);   
 $.ajax({
-       url : config.baseURL+'api/upload',
+       url : config.baseURL+'upload',
        type : 'POST',
        data : formData,
        dataType : 'json',

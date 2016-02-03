@@ -97,7 +97,9 @@ html
         strong Warning
         | 			  Could not execute the operation. Might be a problem with our server or your internet connection.
       .panel.panel-default
-        #categoryIdHeader.panel-heading Category ID: #{categoryId}
+        .panel-heading
+          p Category Id: 
+          p#categoryIdHeader #{categoryId}
         .panel-body
           form.form-inline(role='form')
             .form-group

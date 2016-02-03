@@ -11,7 +11,7 @@ router.route('/categories').get(function(req, res) {
 	});
 });
 
-router.route('categories')
+router.route('/categories')
 .post(function(req, res) {
 	var category = new Category({
 			name: req.body.name,

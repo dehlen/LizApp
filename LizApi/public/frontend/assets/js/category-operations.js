@@ -2,7 +2,6 @@
 $(document).ready(function() {
 	
 	var currentEditedRow;
-
 	$('.colorpicker').colorpicker();
 	
 	var loadCategories = function() {
@@ -63,7 +62,7 @@ $(document).ready(function() {
 	    e.preventDefault();
 		var tableRow = $(this).closest('tr');
 		var _id = tableRow.children('td:first').text();
-		document.location.href='/question/'+_id;
+		document.location.href='/questions/'+_id;
 		return false;
 	});
 	
@@ -132,6 +131,7 @@ $(document).ready(function() {
 	$(document).on("click", ".editCategory", function(e) {
 	    e.preventDefault();
 		currentEditedRow = $(this).closest("tr");
+	
 		var old = {
 			_id: currentEditedRow.find("td:nth-child(1)").text(),
 			name:currentEditedRow.find("td:nth-child(2)").text(),
@@ -176,6 +176,8 @@ $(document).ready(function() {
 			productIdentifier: $("#productIdentifierLabel2").val(),
 			online: $("#onlineCheckbox2").is(':checked')
 		};
+
+		
 		 uploadFile('fileInput2', function(data, error) {
                         if (error) {
                                 showWarningDialog();
@@ -186,33 +188,33 @@ $(document).ready(function() {
 					if(error) {
 						showWarningDialog();
 					} else {
-				var timeBasedClass = (data.timeBased) ? 'class="cell-color-success"' : 'class="cell-color-fail"'; 
-				var onlineClass = (data.online) ? 'class="cell-color-success"' : 'class="cell-color-fail"'; 
+						var timeBasedClass = (data.timeBased) ? 'class="cell-color-success"' : 'class="cell-color-fail"'; 
+						var onlineClass = (data.online) ? 'class="cell-color-success"' : 'class="cell-color-fail"'; 
 			    
-				var newTableRow = '<td>'+data._id+'</td>';
-				newTableRow += '<td>'+data.name+'</td>';
-				newTableRow += '<td>'+data.createdAt+'</td>';
-				newTableRow += '<td>'+data.description+'</td>';
-				newTableRow += '<td '+timeBasedClass+'></td>';
-				newTableRow += '<td class="iconCell"><img src="'+config.baseURL+'uploads/'+data.iconName+'"'+' alt="" height="20" width="20"/></td>';
-				newTableRow += '<td id="'+data.themeColor.substring(1)+'">'+data.themeColor+'</td>';
-				newTableRow += '<td>'+data.questionLimit+'</td>';
-				newTableRow += '<td>'+data.leaderboardId+'</td>';
-				newTableRow += '<td>'+data.productIdentifier+'</td>';
-				newTableRow += '<td '+onlineClass+'></td>';
-				newTableRow += '<td><a href="#" class="editCategory">Edit</a></td>';
-				newTableRow += '<td><a href="#" class="removeCategory">Delete</a></td>';
-				newTableRow += '<td><a href="#" class="showQuestions">Questions</a></td>';
+						var newTableRow = '<td>'+data._id+'</td>';
+						newTableRow += '<td>'+data.name+'</td>';
+						newTableRow += '<td>'+data.createdAt+'</td>';
+						newTableRow += '<td>'+data.description+'</td>';
+						newTableRow += '<td '+timeBasedClass+'></td>';
+						newTableRow += '<td class="iconCell"><img src="'+config.baseURL+'uploads/'+data.iconName+'"'+' alt="" height="20" width="20"/></td>';
+						newTableRow += '<td id="'+data.themeColor.substring(1)+'">'+data.themeColor+'</td>';
+						newTableRow += '<td>'+data.questionLimit+'</td>';
+						newTableRow += '<td>'+data.leaderboardId+'</td>';
+						newTableRow += '<td>'+data.productIdentifier+'</td>';
+						newTableRow += '<td '+onlineClass+'></td>';
+						newTableRow += '<td><a href="#" class="editCategory">Edit</a></td>';
+						newTableRow += '<td><a href="#" class="removeCategory">Delete</a></td>';
+						newTableRow += '<td><a href="#" class="showQuestions">Questions</a></td>';
 				
-				currentEditedRow.html(newTableRow);
+						currentEditedRow.html(newTableRow);
 				
-				$('#'+data.themeColor.substring(1)).css('background-color', data.themeColor);
-				$('#'+data.themeColor.substring(1)).css('color', 'white');
-				$('.iconCell').css('background-color', 'gray');
+						$('#'+data.themeColor.substring(1)).css('background-color', data.themeColor);
+						$('#'+data.themeColor.substring(1)).css('color', 'white');
+						$('.iconCell').css('background-color', 'gray');
+					}
+				});
 			}
 		});
-		}
-});
 		$('#editCategoryDialog').modal('hide');
 	});
 	
