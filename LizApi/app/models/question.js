@@ -3,15 +3,15 @@ var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;
 
 var QuestionSchema = new Schema({
-	categoryId:String,
-	type:String,
-	text:String,
-	answer:String,
-	option1:String,
+	categoryId: {type: String, required:true},
+	type: {type: String, default: 'text'},
+	text: {type: String, required:true},
+	answer: {type: String, required:true},
+	option1: {type: String, required:true},
 	option2:String,
 	option3:String,
-	mediaName:String,
-	duration:Number,
+	mediaName:{type: String, default: 'placeholder.png'},
+	duration: {type: Number, default:30},
 	explanation:String
 });
 QuestionSchema.plugin(random);

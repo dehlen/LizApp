@@ -59,4 +59,13 @@ router.route('/questions')
 	});
 });
 
+router.loadQuestions = function(categoryId, handler) {
+	Question.find({categoryId:categoryId}, function(err, questions) {
+                if (err) {
+                	handler(null, err);
+                }
+                handler(questions);
+        });
+}
+
 module.exports = router;

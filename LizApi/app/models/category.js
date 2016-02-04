@@ -2,16 +2,16 @@ var mongoose     = require('mongoose');
 var Schema       = mongoose.Schema;
 
 var CategorySchema   = new Schema({
-	name:String,
-	createdAt:String,
+	name: {type:String, required:true},
+	createdAt: {type: Date, default: Date.now},
 	description:String,
-	timeBased:Boolean,
-	themeColor:String,
-	questionLimit:Number,
+	timeBased: {type: Boolean, default:false},
+	themeColor: {type: String, required:true},
+	questionLimit: {type:Number, default: 10},
 	leaderboardId:String,
 	productIdentifier:String,
-	online:Boolean,
-	iconName:String
+	online: {type:Boolean, default:false},
+	iconName: {type:String, required:true}
 });
 
 module.exports = mongoose.model('Category', CategorySchema);

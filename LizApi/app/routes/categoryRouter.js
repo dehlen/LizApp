@@ -59,4 +59,13 @@ router.route('/categories')
 	});
 });
 
+router.loadCategories = function(handler) {
+	Category.find({}, function(err, categories) {
+                if (err) {
+                        handler(null,err);
+                }
+                handler(categories);
+        });
+}
+
 module.exports = router

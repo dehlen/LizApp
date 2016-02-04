@@ -2,13 +2,14 @@ extends layout
 
 block content
     include navbar
+    include modal-category
     .pageContent
       .panel.panel-default
         .panel-heading Categories
         .panel-body
           form.form-inline(role='form')
             .form-group
-              button.openModalDialogButton.btn.btn-primary(type='button')
+              button.openModalDialogButton.btn.btn-primary(type='button', data-toggle='modal', data-target='#addCategoryDialog', aria-label='Add Category')
                 span.glyphicon.glyphicon-plus(aria-hidden='true')
                 |  Add Category
             .form-group
@@ -35,6 +36,27 @@ block content
                 th
                 th
             tbody.searchable
-
+              each category in categories              
+                tr
+                  td #{category._id}
+                  td #{category.name}
+                  td #{category.createdAt.toLocaleString()}
+                  td #{category.description}
+                  td(class=(category.timeBased) ? 'cell-color-success' : 'cell-color-fail') 
+                  td(class='media-cell')
+                    img(src=baseurl+'/uploads/'+category.iconName+'.png', alt='', height='20', width='20')
+                  td(class='themeable') #{category.themeColor}
+                  td #{category.questionLimit}
+                  td #{category.leaderboardId}
+                  td #{category.productIdentifier}
+                  td(class=(category.online) ? 'cell-color-success' : 'cell-color-fail')
+                  td
+                    a#editCategory(href='#') Edit
+                  td
+                    a#removeCategory(href='#') Delete
+                  td
+                    a#showQuestions(href='#') Questions
 block scripts
-
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+    script(src='../assets/js/categoryController.js')

@@ -1,0 +1,51 @@
+#addCategoryDialog.modal.fade(tabindex='-1', role='dialog', aria-labelledby='Add Category', aria-hidden='true')
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal')
+              span(aria-hidden='true') ×
+              span.sr-only Close
+            h4#myModalLabel.modal-title
+              | Add Category
+          .modal-body
+            form(role='form')
+              .form-group
+                label(for='categoryNameLabel') Category Name
+                input#categoryNameLabel.form-control(type='text', placeholder='Sports')
+              .form-group
+                label(for='createdAtLabel') Created At
+                input#createdAtLabel.form-control(type='date', disabled='')
+              .form-group
+                label(for='descriptionLabel') Description
+                input#descriptionLabel.form-control(type='text', placeholder='This is a super category !')
+              .checkbox
+                label
+                  input#timeBasedCheckbox(type='checkbox')
+                  |  Time Based
+              .form-group
+                label(for='fileInput') Icon
+                input#fileInput(type='file', name='file', accept='image/*')
+              .form-group.colorpicker
+                label(for='themeColorPicker') Theme Color
+                .input-group
+                  input#themeColorPicker.form-control(type='text', placeholder='#FFFFFF')
+                  span.input-group-addon
+                    i
+              .form-group
+                label(for='questionLimitLabel') Question Limit
+                input#questionLimitLabel.form-control(type='number', min='2', max='50', value='10')
+              .form-group
+                label(for='leaderboardIdLabel') Leaderboard Id
+                input#leaderboardIdLabel.form-control(type='text', placeholder='')
+              .form-group
+                label(for='productIdentifierLabel') Product Identifier
+                input#productIdentifierLabel.form-control(type='text', placeholder='')
+              .checkbox
+                label
+                  input#onlineCheckbox(type='checkbox', checked='')
+                  |  Online
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal')
+              | Close
+            button#addCategory.btn.btn-primary(type='button')
+              | Save changes

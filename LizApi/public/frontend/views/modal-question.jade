@@ -1,0 +1,49 @@
+#addQuestionDialog.modal.fade(tabindex='-1', role='dialog', aria-labelledby='Add Question', aria-hidden='true')
+      .modal-dialog
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal')
+              span(aria-hidden='true') ×
+              span.sr-only Close
+            h4#myModalLabel.modal-title
+              | Add Question
+          .modal-body
+            form(role='form')
+              .form-group
+                .form-group
+                  label(for='questionText') Question Text
+                  input#questionText.form-control(type='text', placeholder='What is a retain cycle ?')
+                .form-group
+                  label(for='questionType') Type
+                  select#questionType
+                    option(value='text', selected='') Text
+                    option(value='picture') Picture
+                    option(value='video') Video
+                    option(value='audio') Audio
+                    option(value='truefalse') True/False
+                .form-group
+                  label(for='answerText') Answer
+                  input#answerText.form-control(type='text', placeholder='A problem with manual retain counting and your memory management.')
+                .form-group
+                  label(for='option1Text') Option #1
+                  input#option1Text.form-control(type='text', placeholder='An animal')
+                .form-group
+                  label(for='option2Text') Option #2
+                  input#option2Text.form-control(type='text', placeholder='A sports event.')
+                .form-group
+                  label(for='option3Text') Option #3
+                  input#option3Text.form-control(type='text', placeholder='Another option')
+                .form-group
+                  label(for='questionFileInput') Media
+                  input#questionFileInput(type='file', name='file', accept='audio/*,video/mp4,video/x-m4v,video/*,image/*', disabled='')
+                .form-group
+                  label(for='durationSpinner') Duration
+                  input#durationSpinner.form-control(type='number', min='2', max='90', value='30')
+                .form-group
+                  label(for='explanationText') Explanation
+                  input#explanationText.form-control(type='text', placeholder='A retain cycle is often seen in bad memory management programming. And so on...')
+          .modal-footer
+            button.btn.btn-default(type='button', data-dismiss='modal')
+              | Close
+            button#addQuestion.btn.btn-primary(type='button')
+              | Save changes
