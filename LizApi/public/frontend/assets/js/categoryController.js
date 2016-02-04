@@ -14,7 +14,7 @@ $(document).ready(function() {
 		var formData = new FormData();
 		formData.append('file', $('#fileInput')[0].files[0]);
 		$.ajax({
-		       url : config.router.baseurl.prod+''+config.router.web.upload,
+		       url : config.router.baseurl.prod+config.router.web.upload,
 		       type : 'POST',
 		       data : formData,
 		       dataType : 'json',
@@ -41,5 +41,35 @@ $(document).ready(function() {
 			   
 		});
     	});
+
+	 $(document).on("click", ".removeCategory", function(e) {
+        	e.preventDefault();
+                var tableRow = $(this).closest('tr');
+		var _id = tableRow.children('td:first').text();
+                var payload = {"_id": _id};
+		$.ajax({
+           		url : config.router.baseurl.prod+config.router.category.delete,
+            	 	type : 'DELETE',
+            		data : JSON.stringify(payload),
+            		dataType:'json',
+        	 	contentType: "application/json",
+                 	cache : false,
+            	 	success : function(data) {
+				tableRow.remove();
+            		},
+            		error : function(request,error) {
+				//TODO: Show error to user
+            		}
+		});
+                return false;
+        });
+
+	$(document).on("click", ".showQuestions", function(e) {
+            	e.preventDefault();
+                var tableRow = $(this).closest('tr');
+                var _id = tableRow.children('td:first').text();
+                window.location.href='/questions/'+_id;
+                return false;
+        });
 });
 

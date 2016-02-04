@@ -52,11 +52,11 @@ block content
                   td #{category.productIdentifier}
                   td(class=(category.online) ? 'cell-color-success' : 'cell-color-fail')
                   td
-                    a#editCategory(href='#') Edit
+                    a.editCategory(href='#') Edit
                   td
-                    a#removeCategory(href='#') Delete
+                    a.removeCategory(href='#') Delete
                   td
-                    a#showQuestions(href='#') Questions
+                    a.showQuestions(href='#') Questions
 block scripts
     script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
