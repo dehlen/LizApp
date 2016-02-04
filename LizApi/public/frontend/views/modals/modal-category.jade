@@ -5,47 +5,47 @@
             button.close(type='button', data-dismiss='modal')
               span(aria-hidden='true') ×
               span.sr-only Close
-            h4#myModalLabel.modal-title
+            h4.modal-title
               | Add Category
           .modal-body
-            form(role='form')
+            form#addCategoryForm(role='form')
               .form-group
                 label(for='categoryNameLabel') Category Name
-                input#categoryNameLabel.form-control(type='text', placeholder='Sports')
+                input#categoryNameLabel.form-control(name='name', type='text', placeholder='Sports')
               .form-group
                 label(for='createdAtLabel') Created At
-                input#createdAtLabel.form-control(type='date', disabled='')
+                input#createdAtLabel.form-control(name='createdAt', type='date', disabled='')
               .form-group
                 label(for='descriptionLabel') Description
-                input#descriptionLabel.form-control(type='text', placeholder='This is a super category !')
+                input#descriptionLabel.form-control(name='description', type='text', placeholder='This is a super category !')
               .checkbox
                 label
-                  input#timeBasedCheckbox(type='checkbox')
+                  input#timeBasedCheckbox(name='timeBased', type='checkbox')
                   |  Time Based
               .form-group
                 label(for='fileInput') Icon
-                input#fileInput(type='file', name='file', accept='image/*')
+                input#fileInput(name='file', type='file', accept='image/*')
               .form-group.colorpicker
                 label(for='themeColorPicker') Theme Color
                 .input-group
-                  input#themeColorPicker.form-control(type='text', placeholder='#FFFFFF')
+                  input#themeColorPicker.form-control(name='themeColor', type='text', placeholder='#FFFFFF')
                   span.input-group-addon
                     i
               .form-group
                 label(for='questionLimitLabel') Question Limit
-                input#questionLimitLabel.form-control(type='number', min='2', max='50', value='10')
+                input#questionLimitLabel.form-control(name='questionLimit', type='number', min='2', max='50', value='10')
               .form-group
                 label(for='leaderboardIdLabel') Leaderboard Id
-                input#leaderboardIdLabel.form-control(type='text', placeholder='')
+                input#leaderboardIdLabel.form-control(name='leaderboardId', type='text', placeholder='')
               .form-group
                 label(for='productIdentifierLabel') Product Identifier
-                input#productIdentifierLabel.form-control(type='text', placeholder='')
+                input#productIdentifierLabel.form-control(name='productIdentifier', type='text', placeholder='')
               .checkbox
                 label
-                  input#onlineCheckbox(type='checkbox', checked='')
+                  input#onlineCheckbox(name='online', type='checkbox', checked='')
                   |  Online
           .modal-footer
             button.btn.btn-default(type='button', data-dismiss='modal')
               | Close
-            button#addCategory.btn.btn-primary(type='button')
+            button#postCategoryButton.btn.btn-primary(type='button')
               | Save changes

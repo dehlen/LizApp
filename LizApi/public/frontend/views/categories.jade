@@ -3,6 +3,7 @@ extends layout
 block content
     include navbar
     include modals/modal-category
+
     .pageContent
       .panel.panel-default
         .panel-heading Categories
@@ -44,7 +45,7 @@ block content
                   td #{category.description}
                   td(class=(category.timeBased) ? 'cell-color-success' : 'cell-color-fail') 
                   td(class='media-cell')
-                    img(src=baseurl+'/uploads/'+category.iconName+'.png', alt='', height='20', width='20')
+                    img(src=baseurl+'/uploads/'+category.iconName, alt='', height='20', width='20')
                   td(class='themeable') #{category.themeColor}
                   td #{category.questionLimit}
                   td #{category.leaderboardId}
@@ -59,4 +60,5 @@ block content
 block scripts
     script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js')
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+    script(src='../assets/js/config.js')
     script(src='../assets/js/categoryController.js')

@@ -11,7 +11,7 @@ var CategorySchema   = new Schema({
 	leaderboardId:String,
 	productIdentifier:String,
 	online: {type:Boolean, default:false},
-	iconName: {type:String, required:true}
+	iconName: {type:String, default:'placeholder.png'}
 });
 
 module.exports = mongoose.model('Category', CategorySchema);

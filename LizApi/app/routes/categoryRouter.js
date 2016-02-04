@@ -1,6 +1,6 @@
 var express = require('express');
-var Category   = require('../models/category');
 var router = express.Router();
+var Category   = require('../models/category');
 	
 router.route('/categories').get(function(req, res) {
 	Category.find({}, function(err, categories) {
