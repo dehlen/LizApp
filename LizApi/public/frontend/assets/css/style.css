@@ -1,46 +1,35 @@
 body {
-	margin: 0px;
-	padding: 0px;
-	height:100%;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
 }
-
 td, th {
-	text-align:center;
+  text-align: center;
 }
-
 .pageContent {
-	padding: 15px;
+  padding: 15px;
 }
-
 .table {
-	font-size: 12px 
+  font-size: 12px
 }
-
 .cell-color-success {
-	color:green;
+  color: green;
 }
-
 .cell-color-success:after {
   content: "YES";
 }
-
 .cell-color-fail {
-	color:red;
+  color: red;
 }
-
 .cell-color-fail:after {
   content: "NO";
 }
-
 .media-cell {
-	background-color: gray;
+  background-color: gray;
 }
-
 .openModalDialogButton {
-	margin-right:5px;
+  margin-right: 5px;
 }
-
 #four04 {
   padding: 20px;
 }
-

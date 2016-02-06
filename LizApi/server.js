@@ -1,20 +1,22 @@
-var express    = require('express');
-var app        = express();
+var express = require('express');
+var app = express();
 var bodyParser = require('body-parser');
-var mongoose   = require('mongoose');
-var path       = require('path');
-var multer     = require('multer');
-var config     = require('./app/config.js');
+var mongoose = require('mongoose');
+var path = require('path');
+var multer = require('multer');
+var config = require('./app/config.js');
 
 mongoose.connect(config.db.url);
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 app.use(bodyParser.json());
 
-app.use('/uploads',express.static(path.join(__dirname, 'public/uploads')));
+app.use('/uploads', express.static(path.join(__dirname, 'public/uploads')));
 app.use('/', express.static(path.join(__dirname, 'public/frontend')));
 app.use(multer({
-    dest: path.join(__dirname, 'public/uploads')
+  dest: path.join(__dirname, 'public/uploads')
 }).single('file'));
 
 app.set('view engine', 'jade');

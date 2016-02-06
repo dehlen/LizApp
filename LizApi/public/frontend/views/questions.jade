@@ -1,57 +1,57 @@
 extends layout
 
 block content
-    include navbar
-    include modals/modal-question
-    .pageContent
-      .panel.panel-default
-        .panel-heading
-          |  Category Id: #{categoryId}
-        .panel-body
-          form.form-inline(role='form')
-            .form-group
-              button.openModalDialogButton.btn.btn-primary(type='button', data-toggle='modal', data-target='#addQuestionDialog', aria-label='Add Question')
-                span.glyphicon.glyphicon-plus(aria-hidden='true')
-                |  Add Question
-            .form-group
-              .input-group
-                input#tableSearchBar.form-control(type='text', placeholder='Search for ...')
-                span.input-group-btn
-                  button.btn.btn-default(type='button') Go!
-        .table-responsive
-          table#questionTable.table
-            thead
-              tr
-                th Question ID
-                th Type
-                th Question
-                th Answer
-                th Option #1
-                th Option #2
-                th Option #3
-                th Media
-                th Duration
-                th Explanation
-                th
-                th
-            tbody.searchable
-              each question in questions
-                tr
-                  td #{question._id}
-                  td #{question.type}
-                  td #{question.text}
-                  td #{question.answer}
-                  td #{question.option1}
-                  td #{question.option2}
-                  td #{question.option3}
-                  td(class='media-cell')
-                    img(src=baseurl+'/uploads/'+question.mediaName, alt='', height='20', width='20')
-                  td #{question.duration}
-                  td #{question.explanation}
-                  td
-                    a.editQuestion(href='#') Edit
-                  td
-                    a.removeQuestion(href='#') Delete
+	include navbar
+	include modals/modal-question
+	.pageContent
+		.panel.panel-default
+			.panel-heading
+				|  Category Id: #{categoryId}
+			.panel-body
+				form.form-inline(role='form')
+					.form-group
+						button.openModalDialogButton.btn.btn-primary(type='button', data-toggle='modal', data-target='#addQuestionDialog', aria-label='Add Question')
+							span.glyphicon.glyphicon-plus(aria-hidden='true')
+							|  Add Question
+					.form-group
+						.input-group
+							input#tableSearchBar.form-control(type='text', placeholder='Search for ...')
+							span.input-group-btn
+								button.btn.btn-default(type='button') Go!
+			.table-responsive
+				table#questionTable.table
+					thead
+						tr
+							th Question ID
+							th Type
+							th Question
+							th Answer
+							th Option #1
+							th Option #2
+							th Option #3
+							th Media
+							th Duration
+							th Explanation
+							th
+							th
+					tbody.searchable
+						each question in questions
+							tr
+								td #{question._id}
+								td #{question.type}
+								td #{question.text}
+								td #{question.answer}
+								td #{question.option1}
+								td #{question.option2}
+								td #{question.option3}
+								td(class='media-cell')
+									img(src=baseurl+'/uploads/'+question.mediaName, alt='', height='20', width='20')
+								td #{question.duration}
+								td #{question.explanation}
+								td
+									a.editQuestion(href='#') Edit
+								td
+									a.removeQuestion(href='#') Delete
 block scripts
-    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js')
-    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+	script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js')
+	script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
