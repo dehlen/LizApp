@@ -1,3 +1,11 @@
+//TODO:
+//Client:
+//Error handling for api calls,
+//Edit Categories and Questions
+//paginate table
+
+//Server:
+//Question type and media validation
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
