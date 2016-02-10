@@ -17,6 +17,8 @@ router.route('/questions/:categoryId').get(function(req, res) {
 
 router.route('/questions')
   .post(function(req, res) {
+    console.log(req.body);
+
     var question = new Question({
       categoryId: req.body.categoryId,
       type: req.body.type,

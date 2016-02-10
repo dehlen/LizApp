@@ -1,19 +1,11 @@
 $(document).ready(function() {
 
-  var themeCells = function() {
-    var tableCells = document.getElementsByClassName('themeable');
-    for (var i = 0; i < tableCells.length; i++) {
-      tableCells[i].style.backgroundColor = tableCells[i].innerText;
-      tableCells[i].style.color = 'white';
-    }
-  }
-
-  themeCells();
-
-  $('#postCategoryButton').click(function(event) {
+  $('#postQuestionButton').click(function(event) {
     event.preventDefault();
+    //TODO: validate on server if combination makes sense (type and media)
+    //TODO: not necesarrily upload a file
     var formData = new FormData();
-    formData.append('file', $('#fileInput')[0].files[0]);
+    formData.append('file', $('#questionFileInput')[0].files[0]);
     $.ajax({
       url: currentBaseurl + config.router.web.upload,
       type: 'POST',
@@ -23,8 +15,9 @@ $(document).ready(function() {
       processData: false,
       contentType: false,
       success: function(data) {
-        $.post(currentBaseurl + config.router.category.post, $('#addCategoryForm').serialize() + '&iconName=' + data.filename, function(data, status, xhr) {
-            $("#addCategoryDialog").modal('hide');
+        $.post(currentBaseurl + '' + config.router.question.post,
+        $('#addQuestionForm').serialize() + '&mediaName=' + data.filename + '&categoryId='+categoryId , function(data, status, xhr) {
+            $("#addQuestionDialog").modal('hide');
           })
           .done(function() {
             setTimeout(function() {
@@ -32,17 +25,17 @@ $(document).ready(function() {
             }, 500);
           })
           .fail(function() {
-            //TODO: show user error
+            //TODO: Show error to user
           });
       },
       error: function(request, error) {
-        //TODO: Show error
+        //TODO: Show error to user
       }
 
     });
   });
 
-  $(document).on("click", ".removeCategory", function(e) {
+  $(document).on("click", ".removeQuestion", function(e) {
     e.preventDefault();
     var tableRow = $(this).closest('tr');
     var _id = tableRow.children('td:first').text();
@@ -50,7 +43,7 @@ $(document).ready(function() {
       "_id": _id
     };
     $.ajax({
-      url: currentBaseurl + config.router.category.delete,
+      url: currentBaseurl + config.router.question.delete,
       type: 'DELETE',
       data: JSON.stringify(payload),
       dataType: 'json',
@@ -63,14 +56,6 @@ $(document).ready(function() {
         //TODO: Show error to user
       }
     });
-    return false;
-  });
-
-  $(document).on("click", ".showQuestions", function(e) {
-    e.preventDefault();
-    var tableRow = $(this).closest('tr');
-    var _id = tableRow.children('td:first').text();
-    window.location.href = '/questions/' + _id;
     return false;
   });
 });

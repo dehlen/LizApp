@@ -32,3 +32,5 @@ var config = {
     }
   }
 };
+
+var currentBaseurl = config.router.baseurl.dev;

@@ -2,7 +2,8 @@ extends layout
 
 block content
 	include navbar
-	include modals/modal-question
+	include modals/addQuestionDialog
+
 	.pageContent
 		.panel.panel-default
 			.panel-heading
@@ -45,7 +46,7 @@ block content
 								td #{question.option2}
 								td #{question.option3}
 								td(class='media-cell')
-									img(src=baseurl+'/uploads/'+question.mediaName, alt='', height='20', width='20')
+									img(src='/uploads/'+question.mediaName, alt='', height='20', width='20')
 								td #{question.duration}
 								td #{question.explanation}
 								td
@@ -55,3 +56,7 @@ block content
 block scripts
 	script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.js')
 	script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js')
+	script(src='../assets/js/config.js')
+	script.
+		var categoryId = !{JSON.stringify(categoryId)};
+	script(src='../assets/js/questionController.js')

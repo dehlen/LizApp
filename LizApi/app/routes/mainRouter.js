@@ -20,9 +20,8 @@ router.route('/').get(function(req, res) {
     }
 
     return res.render('categories', {
-      categories: categories,
-      baseurl: config.server.baseurl.prod
-    });
+      categories: categories
+      });
   });
 });
 
@@ -35,7 +34,6 @@ router.route('/questions/:categoryId').get(function(req, res) {
     }
     return res.render('questions', {
       questions: questions,
-      baseurl: config.server.baseurl.prod,
       categoryId: req.params.categoryId
     });
   });
