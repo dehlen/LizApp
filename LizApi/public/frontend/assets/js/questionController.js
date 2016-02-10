@@ -31,7 +31,7 @@ $(document).ready(function() {
       error: function(request, error) {
         showErrorBox();
       }
-
+      
     });
   });
 
@@ -51,6 +51,9 @@ $(document).ready(function() {
       cache: false,
       success: function(data) {
         tableRow.remove();
+      },
+      error: function() {
+        showErrorBox();
       }
     });
     return false;

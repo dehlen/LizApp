@@ -9,7 +9,7 @@ $(document).ready(function() {
   }
 
   themeCells();
-  
+
   $('#postCategoryButton').click(function(event) {
     event.preventDefault();
     var formData = new FormData();
@@ -58,6 +58,9 @@ $(document).ready(function() {
       cache: false,
       success: function(data) {
         tableRow.remove();
+      },
+      error: function() {
+        showErrorBox();
       }
     });
     return false;
