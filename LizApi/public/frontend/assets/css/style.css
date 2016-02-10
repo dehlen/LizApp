@@ -33,3 +33,6 @@ td, th {
 #four04 {
   padding: 20px;
 }
+#categoryErrorBox, #questionErrorBox {
+  display:none;
+}

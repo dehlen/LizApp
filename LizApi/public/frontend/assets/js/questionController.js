@@ -25,11 +25,11 @@ $(document).ready(function() {
             }, 500);
           })
           .fail(function() {
-            //TODO: Show error to user
+            showErrorBox();
           });
       },
       error: function(request, error) {
-        //TODO: Show error to user
+        showErrorBox();
       }
 
     });
@@ -51,9 +51,6 @@ $(document).ready(function() {
       cache: false,
       success: function(data) {
         tableRow.remove();
-      },
-      error: function(request, error) {
-        //TODO: Show error to user
       }
     });
     return false;

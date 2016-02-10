@@ -9,7 +9,7 @@ $(document).ready(function() {
   }
 
   themeCells();
-
+  
   $('#postCategoryButton').click(function(event) {
     event.preventDefault();
     var formData = new FormData();
@@ -32,11 +32,11 @@ $(document).ready(function() {
             }, 500);
           })
           .fail(function() {
-            //TODO: show user error
+            showErrorBox();
           });
       },
       error: function(request, error) {
-        //TODO: Show error
+        showErrorBox();
       }
 
     });
@@ -58,9 +58,6 @@ $(document).ready(function() {
       cache: false,
       success: function(data) {
         tableRow.remove();
-      },
-      error: function(request, error) {
-        //TODO: Show error to user
       }
     });
     return false;

@@ -1,6 +1,5 @@
 //TODO:
 //Client:
-//Error handling for api calls,
 //Edit Categories and Questions
 //paginate table
 
