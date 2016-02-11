@@ -2,10 +2,10 @@ $(document).ready(function() {
 
   $('#postQuestionButton').click(function(event) {
     event.preventDefault();
-    //TODO: validate on server if combination makes sense (type and media)
-    //TODO: not necesarrily upload a file
+
     var formData = new FormData();
     formData.append('file', $('#questionFileInput')[0].files[0]);
+
     $.ajax({
       url: currentBaseurl + config.router.web.upload,
       type: 'POST',
@@ -25,13 +25,13 @@ $(document).ready(function() {
             }, 500);
           })
           .fail(function() {
-            showErrorBox();
+            showErrorBox("#questionDialogErrorBox");
           });
       },
       error: function(request, error) {
-        showErrorBox();
+        showErrorBox("#questionDialogErrorBox");
       }
-      
+
     });
   });
 
@@ -53,7 +53,7 @@ $(document).ready(function() {
         tableRow.remove();
       },
       error: function() {
-        showErrorBox();
+        showErrorBox("#questionErrorBox");
       }
     });
     return false;

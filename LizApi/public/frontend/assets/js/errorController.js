@@ -1,10 +1,10 @@
-var showErrorBox = function() {
-  $(".alert").show();
+var showErrorBox = function(id) {
+  $(id).show();
   window.setTimeout(function() {
-    $(".alert").hide();
+    $(id).hide();
   }, 5000);
 }
 
 $(document).on("click", ".close", function(e) {
-  $('.alert').hide();
+   $(this).parent().hide();
 })

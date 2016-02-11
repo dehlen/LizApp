@@ -32,11 +32,11 @@ $(document).ready(function() {
             }, 500);
           })
           .fail(function() {
-            showErrorBox();
+            showErrorBox("#categoryDialogErrorBox");
           });
       },
       error: function(request, error) {
-        showErrorBox();
+        showErrorBox("#categoryDialogErrorBox");
       }
 
     });
@@ -60,7 +60,7 @@ $(document).ready(function() {
         tableRow.remove();
       },
       error: function() {
-        showErrorBox();
+        showErrorBox("#categoryErrorBox");
       }
     });
     return false;
