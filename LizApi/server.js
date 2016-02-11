@@ -2,9 +2,10 @@
 //Client:
 //Edit Categories and Questions
 //paginate table
+//question show media in video, audio, img or empty tag(for text and true/false)
+//disable file input for text, disable option2 and option3 for truefalse
+//set correct accept header for fileinput for picture, audio, video
 
-//Server:
-//Question type and media validation
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');

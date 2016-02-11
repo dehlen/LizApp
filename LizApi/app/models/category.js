@@ -1,6 +1,13 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
+function replaceEmpty(v) {
+   if(v == null || v.length == 0){
+     return 'placeholder.png';
+   }
+   return v;
+}
+
 var CategorySchema = new Schema({
   name: {
     type: String,
@@ -31,7 +38,7 @@ var CategorySchema = new Schema({
   },
   iconName: {
     type: String,
-    default: 'placeholder.png'
+    set: replaceEmpty
   }
 });
 

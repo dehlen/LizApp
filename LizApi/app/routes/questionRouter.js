@@ -1,6 +1,20 @@
 var express = require('express');
-var Question = require('../models/question');
 var router = express.Router();
+var Question = require('../models/question');
+var mime = require('mime');
+
+var isValidQuestion = function(question) {
+  if(question.type == 'audio') {
+    return mime.lookup(question.mediaName).substring(0,5) === 'audio';
+  } else if (question.type == 'video') {
+    return mime.lookup(question.mediaName).substring(0,5) === 'video';
+  } else if (question.type == 'picture') {
+    return mime.lookup(question.mediaName).substring(0,5) === 'image';
+  } else if (question.type == 'truefalse') {
+    return question.option2.length == 0 && question.option3.length == 0;
+  }
+  return false
+}
 
 router.route('/questions/:categoryId').get(function(req, res) {
   Question.find({
@@ -17,8 +31,6 @@ router.route('/questions/:categoryId').get(function(req, res) {
 
 router.route('/questions')
   .post(function(req, res) {
-    console.log(req.body);
-
     var question = new Question({
       categoryId: req.body.categoryId,
       type: req.body.type,
@@ -31,6 +43,10 @@ router.route('/questions')
       duration: req.body.duration,
       explanation: req.body.explanation
     });
+
+    if(!isValidQuestion(question)) {
+      return res.status(500).json({error: "Question is not valid."});
+    }
 
     question.save(function(err, question) {
       if (err) {
