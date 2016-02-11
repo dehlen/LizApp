@@ -58,4 +58,32 @@ $(document).ready(function() {
     });
     return false;
   });
+
+  $('#questionType').on('change', function() {
+    $("#questionFileInput").prop('disabled', false);
+    $("#option2Text").prop('disabled', false);
+    $("#option3Text").prop('disabled', false);
+    document.getElementById("questionFileInput").accept = "audio/*,image/*,video/mp4,video/x-m4v,video/*";
+
+    switch(this.value) {
+      case "text":
+        $("#questionFileInput").prop('disabled', true);
+      break;
+      case "truefalse":
+        $("#option2Text").prop('disabled', true);
+        $("#option3Text").prop('disabled', true);
+      break;
+      case "audio":
+        document.getElementById("questionFileInput").accept = "audio/*";
+      break;
+      case "video":
+        document.getElementById("questionFileInput").accept = "video/mp4,video/x-m4v,video/*";
+      break;
+      case "picture":
+        document.getElementById("questionFileInput").accept = "image/*";
+      break;
+      default:
+        throw new RuntimeException("unreachable");
+    }
+  });
 });

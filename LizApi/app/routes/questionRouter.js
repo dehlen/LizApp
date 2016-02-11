@@ -2,8 +2,10 @@ var express = require('express');
 var router = express.Router();
 var Question = require('../models/question');
 var mime = require('mime');
+var commons = require("../commons");
 
 var isValidQuestion = function(question) {
+  console.log(question);
   if(question.type == 'audio') {
     return mime.lookup(question.mediaName).substring(0,5) === 'audio';
   } else if (question.type == 'video') {
@@ -11,9 +13,9 @@ var isValidQuestion = function(question) {
   } else if (question.type == 'picture') {
     return mime.lookup(question.mediaName).substring(0,5) === 'image';
   } else if (question.type == 'truefalse') {
-    return question.option2.length == 0 && question.option3.length == 0;
+    return commons.isEmpty(question.option2) && commons.isEmpty(question.option3)
   }
-  return false
+  return true
 }
 
 router.route('/questions/:categoryId').get(function(req, res) {
