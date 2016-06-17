@@ -1,0 +1,9 @@
+multiple choice mehrere antwortmöglichkeiten nicht nur eine
+freitexteingabe in einzelmodus mit überprüfung durch user selbst
+gruppen pro kurs - mit allen möglichkeiten, (spielen, highscores) oder neue gruppe suchen (zweite ansicht)
+belohnungssystem
+boxen als metapher (je zerstörter desto mehr blaues auge, etc.. metapher als duell)
+computergegner einfach mittel schwer (fliegengewicht, mittelgewicht, schwergewicht)
+pinnwand in den einzelnen lerngruppen
+gruppen öffentlich/oder geschützt
+website mit excel import der karteikarten/Fragen/Antworten
